@@ -1,18 +1,7 @@
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Habits from "./components/Habits";
 function App() {
-
-  const test = {
-    title: "Calistenia",
-    category: "Academia",
-    difficulty: "Dificil",
-    frequency: "Todo dia",
-    achieved: false,
-    how_much_achieved: "75%",
-}
-
   return (
     <>
       <GlobalStyle />
@@ -29,9 +18,6 @@ function App() {
       />
       {/* Same as */}
       <ToastContainer />
-
-
-    <Habits habits = {test}/>
     </>
   );
 }

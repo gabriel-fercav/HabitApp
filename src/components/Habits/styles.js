@@ -8,7 +8,6 @@ border: solid #3E3E3E;
 border-radius: .95rem;
 background-color: #3E3E3E ;
 color: #ffff;
-width: 40vh;
 box-shadow: 2px 4px 18px 6px rgba(0,0,0,0.75);
 `
 export const Title = styled.span`
