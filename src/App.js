@@ -1,6 +1,7 @@
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserSideBar from "./components/Header/UserSideBar";
 function App() {
   return (
     <>
