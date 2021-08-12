@@ -1,5 +1,6 @@
 import { GlobalStyle } from "./styles/global";
 import { ToastContainer } from "react-toastify";
+import Header from "./components/Header";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         pauseOnHover
       />
       {/* Same as */}
+      <Header />
       <ToastContainer />
     </>
   );
