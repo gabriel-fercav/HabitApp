@@ -6,6 +6,8 @@ export const UseStyles = makeStyles((theme) => ({
   },
   header: {
     backgroundColor: "#000",
+    position: "fixed",
+    width: "100%",
   },
   menuButton: {
     marginRight: theme.spacing(2),
