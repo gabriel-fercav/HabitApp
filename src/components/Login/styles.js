@@ -64,7 +64,7 @@ export const Container = styled.div`
         }
 
         @media (min-height: 1080px) {
-            height: 470px;
+            height: 570px;
             padding-bottom: 20px;
 
             .title {

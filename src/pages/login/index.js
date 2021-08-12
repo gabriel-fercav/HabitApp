@@ -8,12 +8,11 @@ const Login = () => {
     return (
         <Main>
             <div className="text__container">
-                <h1>Gamer Habits</h1>
-                {/* <img src={LoginImgDesk} alt="teste"/> */}
-                <h2>Entre na comunidade e adicione seus hábitos, metas e atividades!</h2>
+                <h1 className="text__title">Gamer Habits</h1>
+                <img src={LoginImgDesk} alt="teste"/>
+                <h2 className="text__call">Entre na comunidade e adicione seus hábitos, metas e atividades!</h2>
             </div>
             <div className="login__container">
-                {/* <img src={LoginImg} alt="Teste" /> */}
                 <LoginForm />
             </div>
         </Main>
