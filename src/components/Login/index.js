@@ -25,9 +25,8 @@ const LoginForm = () => {
             <TextField fullWidth variant="outlined" label="Senha" />
             <div className="button__container">
                 <button className="log__button">Entrar</button>
-                <span>Não tem cadastro? <Link>Inscreva-se!</Link></span>
+                <span>Não tem cadastro? <Link to="/register">Inscreva-se!</Link></span>
             </div>
-
         </Container>
     )
 
