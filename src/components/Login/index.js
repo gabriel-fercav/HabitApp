@@ -14,7 +14,6 @@ const LoginForm = () => {
                 <button className="log__button">Entrar</button>
                 <span>Não tem cadastro? <Link to="/register">Inscreva-se!</Link></span>
             </div>
-
         </Container>
     )
 
