@@ -1,5 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import Login from "../pages/login";
+import Registration from "../pages/registration";
 
 const Routes = () => {
 
@@ -9,7 +10,7 @@ const Routes = () => {
         <Login />
       </Route>
       <Route path="/register">
-
+        <Registration />
       </Route>
       <Route path="/user">
 
@@ -18,7 +19,7 @@ const Routes = () => {
 
       </Route>
       <Route path="/group:id">
-        
+
       </Route>
     </Switch>
   )
