@@ -18,7 +18,7 @@ const LoginForm = () => {
   );
 };
 
-    return (
+/*     return (
         <Container>
             <h1 className="title">Login</h1>
             <TextField fullWidth variant="outlined" label="Usuário" />
@@ -32,6 +32,6 @@ const LoginForm = () => {
     )
 
 
-}
+} */
 
-export default LoginForm
+export default LoginForm;
