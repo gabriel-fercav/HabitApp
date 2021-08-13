@@ -15,13 +15,13 @@ export const Title = styled.span`
 font-size: 30px;
 font-weight: 800;
 `
-export const checkStyles = {
-    position: "relative",
-    left: "40%",
-    padding: "5px",
-}
-export const trashStyles = {
-    position: "relative",
-    right: "40%",
-    padding: "5px",
-}
+export const Check = styled.span`
+    position: "relative";
+    left: "40%";
+    padding: "5px";
+`
+export const Trash = styled.span`
+    position: relative;
+    right: "40%";
+    padding: "5px";
+`
