@@ -8,7 +8,9 @@ const Group = () => {
         alt="imagem do grupo"
         width="100"
       />
-      <IdGroup>1934</IdGroup>
+      <IdGroup>
+        <p>1934</p>
+      </IdGroup>
       <Informations>
         <h2>LOL Mobile</h2>
         <p>Grupo Rushadão</p>

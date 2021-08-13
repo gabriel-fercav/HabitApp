@@ -9,9 +9,14 @@ export const Container = styled.div`
   position: relative;
 
   @media(min-width: 768px) {
-    width: 40vw;
+    min-width: 40vw;
     height: 100vh;
     overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    
   }
 `;
 export const Titulo = styled.div`
@@ -19,8 +24,12 @@ export const Titulo = styled.div`
   position: absolute;
   top: 10px;
   left: 25px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bolder;
   color: #ff6109;
+
+  @media(min-width: 768px) {
+    font-size: 35px;
+  }
 `;
 

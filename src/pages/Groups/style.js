@@ -24,4 +24,9 @@ export const SearchIcon = styled.div`
   position: absolute;
   top: 78px;
   right: 14%;
+
+  @media(min-width: 768px) {
+      top: 85px;
+      right: 12%;
+  }
 `;
