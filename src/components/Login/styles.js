@@ -57,6 +57,11 @@ export const Container = styled.div`
             font-size: 1.2rem;
             margin-bottom: 10px;
             font-family: 'Roboto';
+            transition: all 0.2s;
+        }
+
+        .log__button:hover {
+            background-color: rgb(232, 81, 0);
         }
 
         @media (min-width: 1000px) {

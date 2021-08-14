@@ -60,6 +60,10 @@ export const Container = styled.div`
             font-family: 'Roboto';
         }
 
+        .log__button:hover {
+            background-color: rgb(232, 81, 0);
+        }
+
         @media (min-width: 1000px) {
             height: 370px;
         }
