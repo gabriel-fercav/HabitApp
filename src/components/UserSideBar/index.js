@@ -19,10 +19,8 @@ const UserSideBar = () => {
         <h2>Ciole Guilherme</h2>
       </ContentName>
       <ContentEmail>
-      <MdEmail color="#FF6109" size="20" />
-        <p>
-           guilhermeciope@email.com
-        </p>
+        <MdEmail color="#FF6109" size="20" />
+        <p>guilhermeciope@email.com</p>
       </ContentEmail>
     </Container>
   );

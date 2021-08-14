@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #3e3e3e;
-  height: 80vh;
+  min-height: 450px;
+  height: 70vh;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 5px;
   border-radius: 10px;
 
   img {
@@ -16,6 +17,13 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
+    /*width: 30vw;*/
+    width: 48%;
+    height: 86vh;
+  }
+
+  @media (min-width: 1024px) {
+    /*width: 100%;*/
     width: 30vw;
   }
 `;
