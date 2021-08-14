@@ -9,8 +9,16 @@ export const GlobalStyle = createGlobalStyle`
         outline: 0;
     }
 
-    body {
+    :root {
+        --gray: #3E3E3E;
+        --gray-light:  #C4C4C4;
+        --black: #000;
+        --orange: #FF6109;
+        --white: #FFF;
+    }
 
+    body {
+        font-family: 'Roboto';
     }
     
     body, input, button {
