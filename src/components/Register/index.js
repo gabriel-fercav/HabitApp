@@ -13,7 +13,7 @@ const RegisterForm = () => {
     const { createUser } = useContext(UserContext)
 
     const schema = yup.object().shape({
-        username: yup.string().max(12, "Máx. de 12 caractéres.").matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]+$/, "Necessário letras e números.").required("Nome obrigatório"),
+        username: yup.string().max(12, "Máx. de 12 caractéres.").required("Nome obrigatório"),
         email: yup.string().email("Deve ser um e-mail válido.").required("E-mail obrigatório."),
         password: yup.string().min(4, "Mínimo de 4 caractéres").matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]+$/, "Necessário letras e números."),
         confirm: yup.string().oneOf([yup.ref("password")], "Senhas diferentes")

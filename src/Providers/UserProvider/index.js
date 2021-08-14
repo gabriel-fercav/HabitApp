@@ -33,7 +33,7 @@ export const UserProvider = ({ children }) => {
       .then((res) => {
         toast.success("Usuário cadastrado com sucesso");
       })
-      .catch((err) => console.log("Algo deu errado! :("));
+      .catch((err) => toast.error("Algo deu errado! :("));
   };
 
   const getUser = (id) => {
