@@ -41,4 +41,20 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
 
+    ::-webkit-scrollbar {
+        width: 20px;
+        
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: var(--gray-light);
+        border-radius: 30px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--orange);
+        border-radius: 10px;
+        border: 5px solid var(--gray-light)
+    }
+
 `;
