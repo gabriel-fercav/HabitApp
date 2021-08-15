@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #000000;
-  height: 55vh;
+  height: 350px;
   padding: 15px 26px;
-  margin-bottom: 30px;
+  /*margin: 10px;*/
   border-radius: 15px;
   position: relative;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
+  max-width: 290px;
+  width: 80%;
 
   img {
     position: absolute;

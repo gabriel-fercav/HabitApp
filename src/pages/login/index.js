@@ -1,6 +1,6 @@
-import { Main } from './styles'
-import LoginImgDesk from '../../assets/loginDesktop.svg'
-import LoginForm from '../../components/Login'
+import { Main } from "./styles";
+import LoginImgDesk from "../../assets/loginDesktop.svg";
+import LoginForm from "../../components/Login";
 
 const Login = () => {
   return (
