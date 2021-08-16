@@ -3,16 +3,13 @@ export const Container = styled.div`
   position: relative;
   margin: 5px;
   border-radius: 10px;
-  background-color: #000;
-  /*width: 100%;*/
+  background-color: var(--gray);
 
   @media all and (min-width: 768px) {
     max-height: 86vh;
     width: 48%;
-    /*width: 30vw;*/
   }
   @media all and (min-width: 1024px) {
-    /*width: 100%;*/
     width: 35vw;
   }
 `;

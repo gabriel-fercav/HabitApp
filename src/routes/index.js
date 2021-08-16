@@ -9,15 +9,14 @@ const Routes = () => {
       <Route exact path="/">
         <Login />
       </Route>
-      <Route path="/home">
-        <Home />
-      </Route>
       <Route path="/register">
         <Registration />
       </Route>
-      <Route path="/user"></Route>
+      <Route path="/user">
+        <Home />
+      </Route>
       <Route path="/groups">
-        <Groups></Groups>
+        <Groups/>
       </Route>
       <Route path="/group"></Route>
       <Route path="/group:id"></Route>

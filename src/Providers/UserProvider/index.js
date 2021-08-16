@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import axios from "axios";
+import axios from 'axios'
 import jwt_decode from "jwt-decode";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -24,8 +24,8 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   const createUser = (data) => {
-    api
-      .post("/users/", data, {
+    axios
+      .post("https://kabit-api.herokuapp.com/users/", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,8 +44,7 @@ export const UserProvider = ({ children }) => {
   };
 
   const signIn = (data) => {
-    api
-      .post("/sessions/", data, {
+    axios.post("https://kabit-api.herokuapp.com/sessions/", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -58,8 +57,8 @@ export const UserProvider = ({ children }) => {
   };
 
   const logOut = () => {
-    localStorage.clear();
     setToken("");
+    localStorage.clear();
   };
 
   const updateUser = (data) => {
@@ -67,7 +66,10 @@ export const UserProvider = ({ children }) => {
     const dataAtt = {
       username: username,
     };
-    axios.patch(`/users/${id}`, dataAtt);
+    api.patch(`/users/${id}/`, dataAtt, { 
+      headers: { 
+        'Authorization': 'Bearer ' + token }
+      });
   };
 
   return (
@@ -80,6 +82,7 @@ export const UserProvider = ({ children }) => {
         setUsername,
         createUser,
         updateUser,
+        getUser,
         signIn,
         logOut,
       }}

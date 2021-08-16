@@ -17,13 +17,11 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    /*width: 30vw;*/
     width: 48%;
     height: 86vh;
   }
 
   @media (min-width: 1024px) {
-    /*width: 100%;*/
     width: 30vw;
   }
 `;
@@ -37,6 +35,7 @@ export const ContentEmail = styled.div`
 
   p {
     color: white;
+    margin-left: 5px;
     padding-left: 5px;
   }
 `;
@@ -46,12 +45,46 @@ export const ContentName = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-top: 50px;
+  margin-bottom: 8px;
   width: 80%;
 
   h2 {
     color: white;
+    width: 200px;
     padding-left: 5px;
+    border-radius: 15px;
     padding-top: 2px;
-    margin: 0px;
+    margin-left: 5px;
+    transition: 0.3s all;
   }
+
+  h2:hover {
+    color: white;
+    padding-left: 15px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.568);
+  }
+
+  input {
+    background-color: rgba(0, 0, 0, 0.568);
+    color: white;
+    width: 200px;
+    height: 30px;
+    padding-left: 15px;
+    border-radius: 15px;
+    margin: 0px 0px 0px 5px;
+    font-size: 1.5rem;
+    border: 0;
+    transition: 0.3s all;
+  }
+
+  input::placeholder {
+    font-size: 1.4rem;
+    transition: 0.3s all;
+  }
+
+  input:focus::placeholder {
+    color: rgba(0, 0, 0, 0);
+  }
+
 `;
