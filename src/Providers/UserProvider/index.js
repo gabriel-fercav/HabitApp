@@ -44,8 +44,8 @@ export const UserProvider = ({ children }) => {
   };
 
   const signIn = (data) => {
-    api
-      .post("/sessions/", data, {
+    axios
+      .post("https://kabit-api.herokuapp.com/sessions/", data, {
         headers: {
           "Content-Type": "application/json",
         },
