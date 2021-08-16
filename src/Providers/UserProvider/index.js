@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import axios from 'axios'
+import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -24,8 +24,8 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   const createUser = (data) => {
-    axios
-      .post("https://kabit-api.herokuapp.com/users/", data, {
+    api
+      .post("/users/", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -67,7 +67,7 @@ export const UserProvider = ({ children }) => {
     const dataAtt = {
       username: username,
     };
-    api.patch(`/users/${id}`, dataAtt);
+    axios.patch(`/users/${id}`, dataAtt);
   };
 
   return (
