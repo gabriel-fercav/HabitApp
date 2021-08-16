@@ -21,7 +21,7 @@ const LoginForm = () => {
 
   const handleLogin = (data) => {
     signIn(data)
-    // adicionar history.push("") para página de usuário.
+    history.push("/home")
   }
 
   return (
