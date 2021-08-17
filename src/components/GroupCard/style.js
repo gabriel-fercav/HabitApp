@@ -38,6 +38,7 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     min-width: 45%;
     height: 60vh;
+    margin: 10px;
 
     span {
       font-size: 25px;

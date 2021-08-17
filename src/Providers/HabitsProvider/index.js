@@ -5,13 +5,19 @@ import axios from "axios";
 
 export const HabitsContext = createContext([]);
 export const HabitsProvider = ({ children }) => {
+
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
   };
+
+
   const [habits, setHabits] = useState([]);
+
+  // PEGAR HÁBITOS
   const getHabits = () => {
     api.get("/habits/personal/", config).then((res) => setHabits(res.data)) ||
       [].catch((err) => console.log(err));
@@ -19,6 +25,8 @@ export const HabitsProvider = ({ children }) => {
   useEffect(() => {
     getHabits();
   }, []);
+
+  // ADD HÁBITOS
   const addHabit = (item) => {
     axios
       .post("https://kabit-api.herokuapp.com/habits/", item, config)
@@ -28,6 +36,8 @@ export const HabitsProvider = ({ children }) => {
       })
       .catch((_) => toast.error(" Nao foi possivel criar o habito "));
   };
+
+
   const removeHabit = (id) => {
     api
       .delete(`/habits/${id}/`, config)
@@ -41,6 +51,8 @@ export const HabitsProvider = ({ children }) => {
         toast.error("Nao foi possivel apagar o habito ");
       });
   };
+
+
   const updateHabit = (data) => {
     const { id, att } = data;
     api
@@ -55,6 +67,7 @@ export const HabitsProvider = ({ children }) => {
         toast.error("Nao foi possivel atualizar o habito ");
       });
   };
+
   return (
     <HabitsContext.Provider
       value={{ habits, addHabit, removeHabit, updateHabit }}

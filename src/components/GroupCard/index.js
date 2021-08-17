@@ -1,6 +1,6 @@
 import { Container, IdGroup, Informations } from "./style";
 
-const GroupComponent = () => {
+const GroupCard = ({obj}) => {
   return (
     <Container>
       <img
@@ -9,16 +9,16 @@ const GroupComponent = () => {
         width="100"
       />
       <IdGroup>
-        <p>1934</p>
+        <p>{obj.id}</p>
       </IdGroup>
       <Informations>
-        <h2>LOL Mobile</h2>
-        <p>Grupo Rushadão</p>
+        <h2>{obj.name}</h2>
+        <p>{obj.description}</p>
       </Informations>
-      <span>Adm: Guilherme Ciole</span>
+      <span>Criador: {obj.creator.username}</span>
       <button>Entrar</button>
     </Container>
   );
 };
 
-export default GroupComponent;
+export default GroupCard;
