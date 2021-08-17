@@ -6,8 +6,7 @@ export const GroupsContext = createContext([]);
 
 export const GroupsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
-  const [search, setSearch] = useState(false);
-  const [params, setParams] = useState({ category: "", page: 1 });
+  const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
 
   const config = {
@@ -16,14 +15,6 @@ export const GroupsProvider = ({ children }) => {
     },
   };
 
-  const configCategory = {
-    params: { params },
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    },
-  };
-
-
   const getGroups = () => {
     api.get("/groups/")
       .then(response => setGroups(response.data.results));
@@ -31,7 +22,7 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     getGroups()
-  }, [groups])
+  }, [])
 
   const subGroup = (id) => {
     api

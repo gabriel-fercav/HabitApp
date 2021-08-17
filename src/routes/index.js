@@ -22,7 +22,7 @@ const Routes = () => {
       <Route path="/group">
         <Group />
       </Route>
-      <Route path="/group:id"></Route>
+      <Route path="/group/:id/"></Route>
     </Switch>
   );
 };

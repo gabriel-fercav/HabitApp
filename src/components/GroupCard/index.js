@@ -1,6 +1,13 @@
 import { Container, IdGroup, Informations } from "./style";
+import { useHistory } from "react-router";
 
 const GroupCard = ({obj}) => {
+  const history = useHistory();
+  
+  const handleClick = (id) => {
+    history.push(`/group/${id}/`);
+  }  
+
   return (
     <Container>
       <img
@@ -16,7 +23,7 @@ const GroupCard = ({obj}) => {
         <p>{obj.description}</p>
       </Informations>
       <span>Criador: {obj.creator.username}</span>
-      <button>Entrar</button>
+      <button onClick={() => handleClick(obj.id)}>Entrar</button>
     </Container>
   );
 };
