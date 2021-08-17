@@ -1,6 +1,6 @@
 import { Container, IdGroup, Informations } from "./style";
 
-const Group = () => {
+const GroupComponent = () => {
   return (
     <Container>
       <img
@@ -21,4 +21,4 @@ const Group = () => {
   );
 };
 
-export default Group;
+export default GroupComponent;
