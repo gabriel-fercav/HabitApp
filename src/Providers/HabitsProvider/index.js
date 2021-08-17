@@ -45,11 +45,15 @@ export const HabitsProvider = ({ children }) => {
     const { id, att } = data;
     api
       .patch(`habits/${id}`, att, config)
-      .then((_) => toast.success("Habito atualizado com sucesso!"))
-      .catch((_) => toast.error("Nao foi possivel atualizar o habito "));
-    setHabits(
-      api.get("/habits/personal/", config).then((res) => res.data || [])
-    );
+      .then((_) => {
+        console.log("Atualizado com sucesso");
+        toast.success("Habito atualizado com sucesso!");
+        getHabits();
+      })
+      .catch((_) => {
+        console.log("Não foi possivel atualizar");
+        toast.error("Nao foi possivel atualizar o habito ");
+      });
   };
   return (
     <HabitsContext.Provider
