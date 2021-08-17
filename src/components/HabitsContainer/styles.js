@@ -41,6 +41,7 @@ export const Title = styled.p`
 `;
 
 export const ContainerCards = styled.div`
+  width: 100%;
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;

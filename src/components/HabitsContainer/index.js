@@ -8,15 +8,6 @@ import { HabitsContext } from "../../Providers/HabitsProvider";
 const HabitsContainer = () => {
   const [showModal, setShowModal] = useState(false);
 
-  //const habits = {
-  //  id: 123,
-  //  title: "Lolzinho na RANK",
-  //  category: "game",
-  //  dificulty: "Easy",
-  //  frequency: "80",
-  //  achieved: true,
-  //};
-
   const { habits } = useContext(HabitsContext);
   console.log(habits);
   const handleAddHabits = () => {
@@ -35,12 +26,6 @@ const HabitsContainer = () => {
           {habits?.map((habit) => (
             <Habits key={habit.id} habit={habit} />
           ))}
-          {/*<Habits habits={habits} />
-          <Habits habits={habits} />
-          <Habits habits={habits} />
-          <Habits habits={habits} />
-          <Habits habits={habits} />
-          <Habits habits={habits} />*/}
         </ContainerCards>
       </Content>
       {showModal && (
