@@ -5,7 +5,7 @@ export const ContainerText = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-basis: 80%;
+  flex-basis: 90%;
 
   div + div {
     margin: 0.5rem 0;
@@ -25,7 +25,7 @@ export const Content = styled.div`
 
 export const Card = styled.div`
   width: 300px;
-  height: 250px;
+  height: 300px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -57,5 +57,5 @@ export const ContainerButton = styled.div`
   width: 100%;
   justify-content: space-between;
   padding: 0.5rem;
-  flex-basis: 20%;
+  flex-basis: 10%;
 `;
