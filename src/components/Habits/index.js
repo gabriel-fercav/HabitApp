@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   ContainerText,
@@ -12,15 +13,19 @@ import { useContext } from "react";
 import { HabitsContext } from "../../Providers/HabitsProvider";
 import { TiBatteryFull } from "react-icons/ti";
 import { GiLightningFrequency } from "react-icons/gi";
+import { FiPercent } from "react-icons/fi";
+const Habits = ({ habit, setShowModalUpdate, showModalUpdate }) => {
+  const [achieved, setAchieved] = useState(false);
 
-const Habits = ({ habit }) => {
   const { removeHabit } = useContext(HabitsContext);
 
   const handleTrash = (id) => {
     removeHabit(id);
   };
 
-  const handleUpdate = () => {};
+  const handleUpdate = () => {
+    setShowModalUpdate(!showModalUpdate);
+  };
 
   return (
     <Card>
@@ -31,7 +36,7 @@ const Habits = ({ habit }) => {
           </Button>
         </span>
         <span>
-          <Button onClick={() => handleUpdate}>
+          <Button onClick={() => handleUpdate()}>
             <FaEdit color="#FF6109" size={20} />
           </Button>
         </span>
@@ -60,6 +65,12 @@ const Habits = ({ habit }) => {
           <span>
             <span>Frequencia: </span>
             {habit.frequency}
+          </span>
+        </Content>
+        <Content>
+          <span>
+            <FiPercent color="#FF6109" size={20} />
+            <span>Valor alcançado:</span> {habit.how_much_achieved}{" "}
           </span>
         </Content>
       </ContainerText>
