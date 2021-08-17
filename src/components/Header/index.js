@@ -13,9 +13,12 @@ import PersonIcon from "@material-ui/icons/Person";
 import GroupIcon from "@material-ui/icons/Group";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { useContext } from "react"
+import { UserContext } from "../../Providers/UserProvider";
 
 const Header = () => {
   const classes = UseStyles();
+  const { logOut } = useContext(UserContext)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -31,7 +34,7 @@ const Header = () => {
 
   const handlePerfil = () => {
     handleMobileMenuClose();
-    history.push("/");
+    history.push("/user");
   };
 
   const handleGroups = () => {
@@ -41,7 +44,8 @@ const Header = () => {
 
   const handleLogout = () => {
     handleMobileMenuClose();
-    history.push("/login");
+    logOut();
+    history.push("/");
   };
 
   const mobileMenuId = "primary-search-account-menu-mobile";

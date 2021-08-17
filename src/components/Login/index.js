@@ -31,7 +31,7 @@ const LoginForm = () => {
   const handleLogin = (data) => {
     console.log(data);
     signIn(data);
-    history.push("/home");
+    history.push("/user");
   };
 
   return (
