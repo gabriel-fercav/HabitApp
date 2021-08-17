@@ -1,16 +1,14 @@
-import Group from "../Group";
+import GroupCard from "../GroupCard";
 import { Titulo, Container } from "./style";
 
-const GroupsComponent = () => {
+const GroupsComponent = ({groups}) => {
+  console.log(groups)
   return (
     <Container>
       <Titulo>
         <p>Grupos</p>
       </Titulo>
-      <Group />
-      <Group />
-      <Group />
-      <Group />
+      {groups.map(x => <GroupCard obj={x}/>)}
     </Container>
   );
 };

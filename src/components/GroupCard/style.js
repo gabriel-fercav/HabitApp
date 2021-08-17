@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #000000;
-  height: 350px;
+  
   padding: 15px 26px;
-  /*margin: 10px;*/
   border-radius: 15px;
   position: relative;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
-  max-width: 290px;
-  width: 80%;
+  width: 95%;
+  margin-bottom: 10px;
 
   img {
     position: absolute;
@@ -22,10 +21,9 @@ export const Container = styled.div`
   }
 
   button {
-    position: absolute;
-    bottom: 20px;
-    right: 50%;
-    transform: translateX(50%);
+    margin-top: 10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
     width: 45%;
     height: 30px;
     border: none;
@@ -37,10 +35,15 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     min-width: 45%;
-    height: 60vh;
+    height: 320px;
+    margin: 10px; 
 
     span {
-      font-size: 25px;
+      font-size: 20px;
+    }
+
+    button {
+      margin-top: 35px;
     }
   }
 `;
@@ -63,7 +66,7 @@ export const IdGroup = styled.div`
 
 export const Informations = styled.div`
   padding-top: 112px;
-  padding-bottom: 50px;
+  margin-bottom: 20px;
 
   h2,
   p {
@@ -72,6 +75,8 @@ export const Informations = styled.div`
   }
 
   @media (min-width: 768px) {
+    margin-bottom: 30px;
+
     h2 {
       font-size: 35px;
     }
@@ -79,5 +84,5 @@ export const Informations = styled.div`
     p {
       font-size: 20px;
     }
-  }
+  }  
 `;
