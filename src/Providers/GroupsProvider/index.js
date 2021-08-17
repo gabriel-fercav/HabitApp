@@ -21,10 +21,10 @@ export const GroupsProvider = ( { children } ) => {
     }
     const getGroups = () => {
         if (search){
-        setGroups( api.get("/groups", configCategory ))
+        api.get("/groups", configCategory ).then((res) => setGroups(res.data))
         }else{
         setSearch(false)
-        setGroups( api.get("/groups/subscriptions/", config ))
+        api.get("/groups/subscriptions/", config ).then((res) => setGroups(res.data))
         }
     }
     useEffect(() => {
@@ -48,8 +48,9 @@ export const GroupsProvider = ( { children } ) => {
         api.post("/groups/", data ,config).then((_) => toast.success("Grupo criado com sucesso")).catch("Nao foi possivel criar o grupo")
         getGroups()
     }
-    const searchGroup = (id) => {
-        return api.get(`/groups/${id}`).then((res) => res.data)
+    const searchGroup = (id) => async () => {
+        const response = await api.get(`/groups/${id}`).then((res) => res.data).catch((err) => toast.error(`Nao foi possivel achar o grupo: "${err}"` ))
+        return response 
     }
     return (
         <GroupsContext.Provider value = {{groups,  subGroup, categoryGroup, editGroup, addGroup, searchGroup }}>
