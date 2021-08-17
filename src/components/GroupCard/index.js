@@ -1,12 +1,12 @@
 import { Container, IdGroup, Informations } from "./style";
 import { useHistory } from "react-router";
 
-const GroupComponent = ({ group }) => {
+const GroupCard = ({obj}) => {
   const history = useHistory();
-
+  
   const handleClick = (id) => {
     history.push(`/group/${id}/`);
-  };
+  }  
 
   return (
     <Container>
@@ -16,16 +16,16 @@ const GroupComponent = ({ group }) => {
         width="100"
       />
       <IdGroup>
-        <p>{group.id}</p>
+        <p>{obj.id}</p>
       </IdGroup>
       <Informations>
-        <h2>{group.name}</h2>
-        <p>{group.description}</p>
+        <h2>{obj.name}</h2>
+        <p>{obj.description}</p>
       </Informations>
-      <span>Adm: {group.creator.username}</span>
-      <button onClick={() => handleClick(group.id)}>Entrar</button>
+      <span>Criador: {obj.creator.username}</span>
+      <button onClick={() => handleClick(obj.id)}>Entrar</button>
     </Container>
   );
 };
 
-export default GroupComponent;
+export default GroupCard;

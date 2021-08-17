@@ -3,39 +3,27 @@ import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 export const GroupsContext = createContext([]);
+
 export const GroupsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
-  const [search, setSearch] = useState(false);
-  const [params, setParams] = useState({ category: "", page: 1 });
+  const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
+
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
   };
-  const configCategory = {
-    params: { params },
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+
   const getGroups = () => {
-    if (search) {
-      api
-        .get("/groups/", configCategory)
-        .then((res) => setGroups(res.data))
-        .catch((err) => console.log(err));
-    } else {
-      setSearch(false);
-      api
-        .get("/groups/subscriptions/", config)
-        .then((res) => setGroups(res.data))
-        .catch((err) => console.log(err));
-    }
-  };
+    api.get("/groups/")
+      .then(response => setGroups(response.data.results));
+  }
+
   useEffect(() => {
-    getGroups();
-  }, []);
+    getGroups()
+  }, [groups])
+
   const subGroup = (id) => {
     api
       .post(`/groups/${id}/subscribe/`)
@@ -43,12 +31,13 @@ export const GroupsProvider = ({ children }) => {
       .catch((_) => toast.error("Nao foi possivel se inscrever "));
     setGroups(api.get("/groups/subscriptions/", config));
   };
+
   const categoryGroup = (params) => {
     const { category, page } = params;
-    setSearch(true);
     setParams({ category: category || "", page: page || 1 });
     getGroups();
   };
+
   const editGroup = (id, data) => {
     api
       .patch(`groups/${id}`, data, config)
@@ -56,6 +45,7 @@ export const GroupsProvider = ({ children }) => {
       .catch((_) => toast.error("Nao foi possivel atualizar o grupo"));
     getGroups();
   };
+
   const addGroup = (data) => {
     api
       .post("/groups/", data, config)
@@ -63,14 +53,17 @@ export const GroupsProvider = ({ children }) => {
       .catch("Nao foi possivel criar o grupo");
     getGroups();
   };
+
   const searchGroup = (id) => {
     return api.get(`/groups/${id}`).then((res) => res.data);
   };
+
   return (
     <GroupsContext.Provider
       value={{
         groups,
         subGroup,
+        getGroups,
         categoryGroup,
         editGroup,
         addGroup,
