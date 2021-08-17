@@ -34,14 +34,9 @@ export const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-<<<<<<< HEAD:src/components/Group/style.js
-    width: 45%;
-    height: 320px;
-=======
     min-width: 45%;
-    height: 60vh;
-    margin: 10px;
->>>>>>> feature/dashboard-groups:src/components/GroupCard/style.js
+    height: 320px;
+    margin: 10px; 
 
     span {
       font-size: 20px;
@@ -88,5 +83,6 @@ export const Informations = styled.div`
 
     p {
       font-size: 20px;
-  }
+    }
+  }  
 `;

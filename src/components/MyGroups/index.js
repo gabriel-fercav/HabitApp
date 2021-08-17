@@ -15,7 +15,7 @@ const MyGroups = () => {
         <MdLibraryAdd size="35" color="#ff6109" />
       </AddIcon>
       {groups.map((group) => (
-        <GroupCard group={group} key={group.id} />
+        <GroupCard obj={group} key={group.id} />
       ))}
       {/* <Group />
       <Group />

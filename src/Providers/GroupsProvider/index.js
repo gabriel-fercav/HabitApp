@@ -22,7 +22,7 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     getGroups()
-  }, [groups])
+  }, [])
 
   const subGroup = (id) => {
     api

@@ -2,20 +2,13 @@ import GroupCard from "../GroupCard";
 import { Titulo, Container } from "./style";
 
 const GroupsComponent = ({groups}) => {
+  console.log(groups)
   return (
     <Container>
       <Titulo>
         <p>Grupos</p>
       </Titulo>
-<<<<<<< HEAD
-
-      {/* <Group />
-      <Group />
-      <Group />
-      <Group /> */}
-=======
       {groups.map(x => <GroupCard obj={x}/>)}
->>>>>>> feature/dashboard-groups
     </Container>
   );
 };
