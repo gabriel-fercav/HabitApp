@@ -3,6 +3,7 @@ import Groups from "../pages/Groups";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
 import Home from "../pages/Home";
+import Group from "../pages/Group";
 const Routes = () => {
   return (
     <Switch>
@@ -16,9 +17,11 @@ const Routes = () => {
         <Home />
       </Route>
       <Route path="/groups">
-        <Groups/>
+        <Groups />
       </Route>
-      <Route path="/group"></Route>
+      <Route path="/group">
+        <Group />
+      </Route>
       <Route path="/group:id"></Route>
     </Switch>
   );
