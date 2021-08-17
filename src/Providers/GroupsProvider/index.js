@@ -21,15 +21,21 @@ export const GroupsProvider = ({ children }) => {
   };
   const getGroups = () => {
     if (search) {
-      setGroups(api.get("/groups", configCategory));
+      api
+        .get("/groups/", configCategory)
+        .then((res) => setGroups(res.data))
+        .catch((err) => console.log(err));
     } else {
       setSearch(false);
-      setGroups(api.get("/groups/subscriptions/", config));
+      api
+        .get("/groups/subscriptions/", config)
+        .then((res) => setGroups(res.data))
+        .catch((err) => console.log(err));
     }
   };
-  //  useEffect(() => {
-  //    getGroups();
-  //  }, [groups]);
+  useEffect(() => {
+    getGroups();
+  }, []);
   const subGroup = (id) => {
     api
       .post(`/groups/${id}/subscribe/`)

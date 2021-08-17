@@ -7,10 +7,11 @@ const GroupsComponent = () => {
       <Titulo>
         <p>Grupos</p>
       </Titulo>
+
+      {/* <Group />
       <Group />
       <Group />
-      <Group />
-      <Group />
+      <Group /> */}
     </Container>
   );
 };

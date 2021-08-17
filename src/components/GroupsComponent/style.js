@@ -2,16 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 70px 15px 10px 15px;
-  background-color: #3e3e3e;
+  background-color: var(--gray);
   width: 90%;
   max-height: 75vh;
   border-radius: 10px;
   position: relative;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (min-width: 768px) {
-    min-width: 40vw;
-    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
@@ -23,7 +25,7 @@ export const Titulo = styled.div`
   left: 25px;
   font-size: 30px;
   font-weight: bolder;
-  color: #ff6109;
+  color: var(--orange);
 
   @media (min-width: 768px) {
     font-size: 35px;

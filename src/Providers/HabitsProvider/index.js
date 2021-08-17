@@ -8,7 +8,7 @@ export const HabitsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
   };
   const [habits, setHabits] = useState([]);

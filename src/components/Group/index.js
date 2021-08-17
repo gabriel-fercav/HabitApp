@@ -1,6 +1,13 @@
 import { Container, IdGroup, Informations } from "./style";
+import { useHistory } from "react-router";
 
-const GroupComponent = () => {
+const GroupComponent = ({ group }) => {
+  const history = useHistory();
+
+  const handleClick = (id) => {
+    history.push(`/group/${id}/`);
+  };
+
   return (
     <Container>
       <img
@@ -9,14 +16,14 @@ const GroupComponent = () => {
         width="100"
       />
       <IdGroup>
-        <p>1934</p>
+        <p>{group.id}</p>
       </IdGroup>
       <Informations>
-        <h2>LOL Mobile</h2>
-        <p>Grupo Rushadão</p>
+        <h2>{group.name}</h2>
+        <p>{group.description}</p>
       </Informations>
-      <span>Adm: Guilherme Ciole</span>
-      <button>Entrar</button>
+      <span>Adm: {group.creator.username}</span>
+      <button onClick={() => handleClick(group.id)}>Entrar</button>
     </Container>
   );
 };
