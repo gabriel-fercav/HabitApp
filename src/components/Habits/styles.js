@@ -10,11 +10,10 @@ export const Card = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  border: solid #3e3e3e;
   border-radius: 0.95rem;
-  background-color: #3e3e3e;
+  background-color: var(--black);
   color: #ffff;
-  box-shadow: 2px 4px 18px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
   margin: 10px;
 
   @media all and (min-width: 768px) {
