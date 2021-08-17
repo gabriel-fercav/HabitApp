@@ -1,24 +1,24 @@
-import api from './../../services/api'
-import { createContext, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import api from "./../../services/api";
+import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-export const GroupsContext = createContext([])
-export const GroupsProvider = ( { children } ) => {
-    const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
-    const [ search, setSearch ] = useState(false)
-    const [ params, setParams ] = useState({category: "", page: 1})
-    const [ groups, setGroups ] = useState([])
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
-    const configCategory = {
-        params: {params},
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }
+export const GroupsContext = createContext([]);
+export const GroupsProvider = ({ children }) => {
+  const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+  const [search, setSearch] = useState(false);
+  const [params, setParams] = useState({ category: "", page: 1 });
+  const [groups, setGroups] = useState([]);
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  };
+  const configCategory = {
+    params: { params },
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  };
     const getGroups = () => {
         if (search){
         api.get("/groups", configCategory ).then((res) => setGroups(res.data))
@@ -32,7 +32,7 @@ export const GroupsProvider = ( { children } ) => {
     }, [groups])
     const subGroup = (id) => {
         api.post(`/groups/${id}/subscribe/`).then((_) => toast.success("Inscrito com sucesso!")).catch((_) => toast.error("Nao foi possivel se inscrever "))
-        setGroups(api.get("/groups/subscriptions/", config))
+        api.get("/groups/subscriptions/", config).then((res) => setGroups(res.data))
     }
     const categoryGroup = (params) => {
         const {category, page} = params
@@ -57,4 +57,4 @@ export const GroupsProvider = ( { children } ) => {
             {children}
         </GroupsContext.Provider>
     )
-}
+    }
