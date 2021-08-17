@@ -16,7 +16,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { UserContext } from "../../Providers/UserProvider";
-//import { HabitsContext } from '../../Providers/HabitsProvider';
+import { HabitsContext } from "../../Providers/HabitsProvider";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -31,11 +31,11 @@ const useStyles = makeStyles({
 });
 
 const ModalHabits = ({ setShowModal, showModal }) => {
-  const [dificulty, setDificulty] = useState("Fácil");
+  const [difficulty, setDifficulty] = useState("Fácil");
   const [category, setCategory] = useState("Moba");
   const [achieved, setAchieved] = useState("true");
   const { id } = useContext(UserContext);
-  //const { addHabits } = useContext(HabitsContext);
+  const { addHabit } = useContext(HabitsContext);
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
@@ -54,7 +54,7 @@ const ModalHabits = ({ setShowModal, showModal }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleInputDificulty = (event) => {
-    setDificulty(event.target.value);
+    setDifficulty(event.target.value);
   };
 
   const handleInputCategory = (event) => {
@@ -73,15 +73,15 @@ const ModalHabits = ({ setShowModal, showModal }) => {
     const { how_much_achieved, title, frequency } = data;
     const newData = {
       title: title,
+      category: category,
+      difficulty: difficulty,
       frequency: frequency,
-      dificulty: dificulty,
-      cattegoty: category,
       achieved: !!achieved,
       how_much_achieved: how_much_achieved,
-      id: id,
+      user: id,
     };
     console.log(newData);
-    //addHabits(newData);
+    addHabit(newData);
     setShowModal(!showModal);
   };
 
@@ -116,7 +116,7 @@ const ModalHabits = ({ setShowModal, showModal }) => {
         <FormControl required fullWidth className={classes.input}>
           <InputLabel>Dificuldade</InputLabel>
           <Select
-            value={dificulty}
+            value={difficulty}
             onChange={handleInputDificulty}
             name="dificulty"
           >
