@@ -1,17 +1,18 @@
 import {
   Card,
-  Container,
+  ContainerText,
   ContainerButton,
   Title,
-  Check,
-  Trash,
+  Content,
   Button,
-  SpanEdit,
 } from "./styles";
-import { IconButton } from "@material-ui/core";
-import { FaTrash, FaCheck, FaEdit } from "react-icons/fa";
+import { FaCheck, FaEdit } from "react-icons/fa";
+import { MdTitle, MdGames } from "react-icons/md";
 import { useContext } from "react";
 import { HabitsContext } from "../../Providers/HabitsProvider";
+import { TiBatteryFull } from "react-icons/ti";
+import { GiLightningFrequency } from "react-icons/gi";
+
 const Habits = ({ habit }) => {
   const { removeHabit } = useContext(HabitsContext);
 
@@ -19,39 +20,50 @@ const Habits = ({ habit }) => {
     removeHabit(id);
   };
 
+  const handleUpdate = () => {};
+
   return (
-    <Container>
-      <Card>
-        <ContainerButton>
-          <Trash>
-            <Button onClick={() => handleTrash(habit.id)}>
-              {" "}
-              <FaTrash color={"hsl(356, 100%, 41%)"} size={20} />{" "}
-            </Button>
-          </Trash>
-          <SpanEdit>
-            <Button>
-              <FaEdit color="#ff0" size={20} />
-            </Button>
-          </SpanEdit>
-        </ContainerButton>
-        <Title> {habit.title} </Title>
-        <h2> Categoria: {habit.category} </h2>
-        <h2> Dificuldade: {habit.difficulty}</h2>
-        <h3> Frequencia: {habit.frequency} </h3>
-        {habit.achieved ? null : (
-          <Check>
-            <IconButton
-              style={{ backgroundColor: "#FF6109" }}
-              variant="outlined"
-            >
-              {" "}
-              <FaCheck size="0.7em" />{" "}
-            </IconButton>
-          </Check>
-        )}
-      </Card>
-    </Container>
+    <Card>
+      <ContainerButton>
+        <span>
+          <Button onClick={() => handleTrash(habit.id)}>
+            <FaCheck color={"#FF6109"} size={20} />
+          </Button>
+        </span>
+        <span>
+          <Button onClick={() => handleUpdate}>
+            <FaEdit color="#FF6109" size={20} />
+          </Button>
+        </span>
+      </ContainerButton>
+      <ContainerText>
+        <Content>
+          <MdTitle color="#FF6109" size={20} />
+          <Title> {habit.title} </Title>
+        </Content>
+        <Content>
+          <MdGames color="#FF6109" size={20} />
+          <span>
+            <span>Categoria: </span>
+            {habit.category}
+          </span>
+        </Content>
+        <Content>
+          <TiBatteryFull color="#FF6109" size={20} />
+          <span>
+            <span>Dificuldade: </span>
+            {habit.difficulty}
+          </span>
+        </Content>
+        <Content>
+          <GiLightningFrequency color="#FF6109" size={20} />
+          <span>
+            <span>Frequencia: </span>
+            {habit.frequency}
+          </span>
+        </Content>
+      </ContainerText>
+    </Card>
   );
 };
 
