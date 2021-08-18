@@ -1,6 +1,7 @@
 import api from "./../../services/api";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const GroupsContext = createContext([]);
 
@@ -48,8 +49,10 @@ export const GroupsProvider = ({ children }) => {
 
   const subGroup = (id) => {
     api
-      .post(`/groups/${id}/subscribe/`, config)
-      .then((_) => toast.success("Inscrito com sucesso!"))
+      .post(`/groups/${id}/subscribe/`, {}, config)
+      .then((_) => {
+        toast.success("Inscrito com sucesso!");
+      })
       .catch((_) => toast.error("Nao foi possivel se inscrever "));
   };
 
