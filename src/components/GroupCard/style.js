@@ -54,7 +54,7 @@ export const IdGroup = styled.div`
 `;
 
 export const Informations = styled.div`
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 
   h2,
   p {
@@ -63,10 +63,8 @@ export const Informations = styled.div`
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 30px;
-
     h2 {
-      font-size: 35px;
+      font-size: 30px;
     }
 
     p {
