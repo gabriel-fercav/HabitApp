@@ -24,45 +24,47 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     h2 {
-      position: absolute;
-      top: 50px;
-      right: 10vw;
       font-size: 60px;
+      margin-bottom: 30px;
     }
 
     p {
       position: absolute;
-      margin-top: 5px;
-      top: 130px;
-      right: 31vw;
+      top: 150px;
+      
     }
   }
 
   @media (min-width: 1024px) {
     h2 {
-      position: absolute;
-      top: 100px;
-      left: -50vw;
       font-size: 60px;
     }
 
     p {
-      position: absolute;
-      margin-top: 5px;
-      top: 180px;
-      left: 9.5vw;
+      font-size: 25px;
     }
   }
 `;
 
 export const IconSubscription = styled.div`
   margin-left: 60%;
+  cursor: pointer;
+
+  @media(min-width: 768px) {
+    position: absolute;
+    top: 100px;
+    right: 10vw;
+  }
+
+  @media(min-width: 1024px) {
+    right: 32vw;
+  }
 `;
 
 export const ContainerCreator = styled.div`
-  width: 80%;
-  height: 10vh;
-  border-radius: 15px;
+  min-width: 70%;
+  min-height: 7vh;
+  border-radius: 10px;
   margin-top: 20px;
   background-color: var(--black);
   color: var(--orange);
@@ -77,16 +79,25 @@ export const ContainerCreator = styled.div`
     font-size: 16px;
   }
 
-  @media (min-width: 768px) {
-    margin-top: 110px;
-    width: 40%;
-    margin-left: 40vw;
+  @media(min-width: 768px) {
+    margin-top: 10px;
+    min-width: 30%;
+    margin-left: 30vw;
+    margin-bottom: 55px;
+
+    span {
+      font-size: 17px;
+    }
   }
 
-  @media (min-width: 1024px) {
-    margin-top: 65px;
-    width: 40%;
-    margin-left: 30vw;
+  @media(min-width: 1024px) {
+    margin-top: 25px;
+    min-width: 10%;
+    margin-left: 0vw;
+
+    p {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -110,10 +121,10 @@ export const ContainerUsers = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    left: 12vw;
-    top: 70px;
+    left: 15vw;
+    top: 185px;
     width: 30vw;
-    max-height: 29vh;
+    max-height: 19vh;
 
     p {
       position: unset;
@@ -125,7 +136,7 @@ export const ContainerUsers = styled.div`
     max-height: 290px;
     position: absolute;
     left: 10px;
-    top: 275px;
+    top: 370px;
 
     p {
       position: unset;
@@ -158,7 +169,7 @@ export const Content = styled.div`
     width: 69vw;
     position: absolute;
     right: 20px;
-    top: 250px;
+    top: 350px;
     padding: 20px 15px 0 15px;
   }
 `;

@@ -2,6 +2,7 @@ import api from "./../../services/api";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+
 export const GroupsContext = createContext([]);
 
 export const GroupsProvider = ({ children }) => {
@@ -13,6 +14,10 @@ export const GroupsProvider = ({ children }) => {
   const [group, setGroup] = useState([]);
   const [subGroups, setSubGroups] = useState([]);
 
+  const [ nextPage, setNextPage ] = useState(false)
+  const [ previousPage, setPreviousPage ] = useState(false)
+  const [ pageCount, setPageCount ] = useState(1)
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -20,10 +25,41 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const getGroups = () => {
+    const query = {
+      params: {page: pageCount, category: 'gamer'}
+    }
     api
-      .get("/groups/?category=Gamer")
-      .then((response) => setGroups(response.data.results));
+      .get("/groups/", query)
+      .then((response) => {
+        const { next, previous } = response.data
+        if( next === null ){
+          setNextPage(false)
+        }else{
+          setNextPage(true)
+        }
+        if( previous === null ){
+          setPreviousPage(false)
+        }else{
+          setPreviousPage(true)
+        }
+        setGroups(response.data.results)});
   };
+  const goNextPage = (page = false) => {
+    if(nextPage && !page){
+      setPageCount(pageCount + 1)
+    }
+    if(page){
+      setPageCount(page)
+    }
+  }
+  const goPreviousPage = (page = false) => {
+    if(previousPage && !page){
+      setPageCount(pageCount - 1)
+    }
+    if(page){
+      setPageCount(page)
+    }
+  }
 
   useEffect(() => {
     if (token) {
@@ -48,8 +84,10 @@ export const GroupsProvider = ({ children }) => {
 
   const subGroup = (id) => {
     api
-      .post(`/groups/${id}/subscribe/`, config)
-      .then((_) => toast.success("Inscrito com sucesso!"))
+      .post(`/groups/${id}/subscribe/`, {}, config)
+      .then((_) => {
+        toast.success("Inscrito com sucesso!");
+      })
       .catch((_) => toast.error("Nao foi possivel se inscrever "));
   };
 
@@ -95,6 +133,8 @@ export const GroupsProvider = ({ children }) => {
         editGroup,
         addGroup,
         searchGroup,
+        goNextPage,
+        goPreviousPage,
       }}
     >
       {children}

@@ -33,16 +33,14 @@ export const SearchIcon = styled.div`
 `;
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 70%;
-    height: 420px;
-    overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
 
-
-    @media (min-height: 1000px) {
-      height: 880px;
-    }
-
-`
+  @media (min-height: 1000px) {
+    height: 880px;
+  }
+`;

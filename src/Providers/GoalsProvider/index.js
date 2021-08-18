@@ -1,5 +1,6 @@
-import { createContext , useState } from 'react'
+import { createContext , useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { GroupsContext } from '../GroupsProvider'
 import api from './../../services/api'
 
 export const GoalsContext = createContext([])
@@ -8,7 +9,11 @@ export const GoalsProvider = ( { children } ) => {
     const [ oneGoal, setOneGoal ] = useState([])
     const [ nextPage, setNextPage ] = useState(false)
     const [ previousPage, setPreviousPage ] = useState(false)
+<<<<<<< HEAD
 
+=======
+    const [ pageCount , setPageCount ] = useState(1)
+>>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
     const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
     
     const config = {
@@ -16,12 +21,29 @@ export const GoalsProvider = ( { children } ) => {
             Authorization: `Bearer ${token}`
         }
     }
-    
+    const { group } = useContext(GroupsContext)
+    const  id  = group.id || null
+
     const getOneGoal = (id) => {
         api.get(`/goals/${id}/`).then((res) => setOneGoal(res.data))
     }
-    const getGroupGoals = (params) => {
-        api.get("/goals", params ).then((res) =>{
+    useEffect(() => {
+        if(token  && id !== null ){
+            setPageCount(1)
+            getGroupGoals(id)
+        }
+    }, [group])
+
+    useEffect(() => {
+        if(token  && id !== null ){
+            getGroupGoals(id)
+        }
+    }, [pageCount])
+    const getGroupGoals = (id) => {
+        const query = {
+            params: {group: id, page: pageCount}
+        }
+        api.get("/goals/", query ).then((res) =>{
             const {previous, next} = res.data
             if(previous !== null ){
                 setPreviousPage(true)
@@ -33,24 +55,60 @@ export const GoalsProvider = ( { children } ) => {
             }else{
                 setNextPage(false)
             }
-            setGoals(res.data)
+            setGoals(res.data.results)
             })
     }
 
     const createGoal = (data) => {
+<<<<<<< HEAD
         api.post("/goals/", data, config).then((_) => toast.success("Meta criada com sucesso!")).catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
+=======
+        api.post("/goals", data, config)
+        .then((_) => toast.success("Meta criada com sucesso!"))
+        .catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
+>>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
     }
 
     const modGoal = (id) => {
-        api.patch(`/goals/${id}/`, config).then((_) => toast.success("Meta atualizada com sucesso!")).catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
+        api.patch(`/goals/${id}/`, config)
+        .then((_) => toast.success("Meta atualizada com sucesso!"))
+        .catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
     }
 
     const delGoal = (id) => {
-        api.delete(`goals/${id}`, config).then((_) => toast.success("Meta deletada com sucesso!")).catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`) )
+        api.delete(`goals/${id}`, config)
+        .then((_) => toast.success("Meta deletada com sucesso!"))
+        .catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`) )
     }
+    const goNextPage = () => {
+        if(nextPage){
+        setPageCount(pageCount + 1)
+        }
+    }
+    const goPreviousPage = () => {
+        if(previousPage){
+        setPageCount(pageCount - 1)
+        }
+    }
+<<<<<<< HEAD
 
+=======
+    console.log(goals)
+>>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
     return (
-        <GoalsContext.Provider value = {{goals, oneGoal, nextPage, previousPage, getOneGoal, getGroupGoals, createGoal, modGoal, delGoal}}>
+        <GoalsContext.Provider value = {{
+            goals,
+            oneGoal,
+            nextPage,
+            previousPage,
+            getOneGoal,
+            getGroupGoals,
+            createGoal,
+            modGoal,
+            delGoal,
+            goNextPage,
+            goPreviousPage,
+            }}>
             {children}
         </GoalsContext.Provider>
     )
