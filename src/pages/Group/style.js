@@ -55,6 +55,10 @@ export const Container = styled.div`
   }
 `;
 
+export const IconSubscription = styled.div`
+  margin-left: 60%;
+`;
+
 export const ContainerCreator = styled.div`
   width: 80%;
   height: 10vh;
@@ -106,7 +110,7 @@ export const ContainerUsers = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    left:12vw;
+    left: 12vw;
     top: 70px;
     width: 30vw;
     max-height: 29vh;
@@ -156,6 +160,5 @@ export const Content = styled.div`
     right: 20px;
     top: 250px;
     padding: 20px 15px 0 15px;
-    
   }
 `;
