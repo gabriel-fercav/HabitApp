@@ -20,7 +20,7 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const getGroups = () => {
-    api.get("/groups/").then((response) => setGroups(response.data.results));
+    api.get("/groups/?category=Gamer").then((response) => setGroups(response.data.results));
   };
 
   useEffect(() => {
