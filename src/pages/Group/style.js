@@ -31,7 +31,6 @@ export const Container = styled.div`
     p {
       position: absolute;
       top: 150px;
-      
     }
   }
 
@@ -50,14 +49,14 @@ export const IconSubscription = styled.div`
   margin-left: 60%;
   cursor: pointer;
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     position: absolute;
     top: 100px;
     right: 10vw;
   }
 
-  @media(min-width: 1024px) {
-    right: 32vw;
+  @media (min-width: 1024px) {
+    right: 25vw;
   }
 `;
 
@@ -79,7 +78,7 @@ export const ContainerCreator = styled.div`
     font-size: 16px;
   }
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: 10px;
     min-width: 30%;
     margin-left: 30vw;
@@ -90,9 +89,9 @@ export const ContainerCreator = styled.div`
     }
   }
 
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     margin-top: 25px;
-    min-width: 10%;
+    min-width: 15%;
     margin-left: 0vw;
 
     p {
@@ -136,7 +135,7 @@ export const ContainerUsers = styled.div`
     max-height: 290px;
     position: absolute;
     left: 10px;
-    top: 370px;
+    top: 46vh;
 
     p {
       position: unset;
@@ -158,7 +157,7 @@ export const Content = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 85vw;
-    height: 50vh;
+    height: 45vh;
     border-radius: 15px;
     flex-direction: row;
     align-items: center;
@@ -167,9 +166,10 @@ export const Content = styled.div`
   @media (min-width: 1024px) {
     justify-content: space-around;
     width: 69vw;
+    height: 50vh;
     position: absolute;
     right: 20px;
-    top: 350px;
+    top: 42vh;
     padding: 20px 15px 0 15px;
   }
 `;
