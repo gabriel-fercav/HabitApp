@@ -17,10 +17,6 @@ const MyGroups = () => {
       {groups.map((group) => (
         <GroupCard obj={group} key={group.id} />
       ))}
-      {/* <Group />
-      <Group />
-      <Group />
-      <Group /> */}
     </Container>
   );
 };

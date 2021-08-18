@@ -2,13 +2,10 @@ import Header from "../../components/Header";
 import GroupsComponent from "../../components/GroupsComponent";
 import { FaSearch } from "react-icons/fa";
 import { Page, SearchIcon } from "./style";
-import { useContext, useState } from "react";
-import { GroupsContext } from "../../Providers/GroupsProvider";
+import { useState } from "react";
 
 const Groups = () => {
-
-  const { groups } = useContext(GroupsContext)
-  const [id, setId] = useState("")
+  const [id, setId] = useState("");
 
   return (
     <Page>
@@ -19,9 +16,9 @@ const Groups = () => {
         value={id}
       />
       <SearchIcon>
-        <FaSearch color="#ff6109" size="20" onClick={()=> console.log(id)} />
+        <FaSearch color="#ff6109" size="20" onClick={id} />
       </SearchIcon>
-      <GroupsComponent groups={groups}/>
+      <GroupsComponent></GroupsComponent>
     </Page>
   );
 };

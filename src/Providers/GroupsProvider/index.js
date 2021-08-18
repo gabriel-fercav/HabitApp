@@ -8,6 +8,7 @@ export const GroupsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
+  const [group, setGroup] = useState([]);
 
   const config = {
     headers: {
@@ -16,13 +17,19 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const getGroups = () => {
-    api.get("/groups/")
-      .then(response => setGroups(response.data.results));
-  }
+    api.get("/groups/").then((response) => setGroups(response.data.results));
+  };
+
+  const specificGroup = (id) => {
+    api
+      .get(`/groups/${id}/`, config)
+      .then((response) => setGroup(response.data))
+      .cath((err) => console.log(err));
+  };
 
   useEffect(() => {
-    getGroups()
-  }, [])
+    getGroups();
+  }, []);
 
   const subGroup = (id) => {
     api
@@ -62,8 +69,10 @@ export const GroupsProvider = ({ children }) => {
     <GroupsContext.Provider
       value={{
         groups,
+        group,
         subGroup,
         getGroups,
+        specificGroup,
         categoryGroup,
         editGroup,
         addGroup,
