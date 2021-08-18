@@ -8,11 +8,14 @@ export const GroupsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
+
   const [group, setGroup] = useState([]);
+
+  const [oneGroup, setOneGroup] = useState(undefined);
 
   const config = {
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
@@ -62,7 +65,8 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const searchGroup = (id) => {
-    return api.get(`/groups/${id}`).then((res) => res.data);
+    id = Number(id);
+    api.get(`/groups/${id}/`).then((res) => setOneGroup(res.data));
   };
 
   return (
@@ -70,6 +74,8 @@ export const GroupsProvider = ({ children }) => {
       value={{
         groups,
         group,
+        oneGroup,
+        setOneGroup,
         subGroup,
         getGroups,
         specificGroup,
