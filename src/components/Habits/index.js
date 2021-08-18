@@ -17,7 +17,7 @@ import { GiLightningFrequency } from "react-icons/gi";
 import { FiPercent } from "react-icons/fi";
 import { toast } from "react-toastify";
 const Habits = ({ habit }) => {
-  const [isShow, setIsShow] = useState(false);
+  const [isShow, setIsShow] = useState(true);
   const [inputValue, setInputValue] = useState(habit.how_much_achieved);
   const { removeHabit, updateHabit } = useContext(HabitsContext);
 
