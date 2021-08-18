@@ -5,15 +5,13 @@ import axios from "axios";
 
 export const HabitsContext = createContext([]);
 export const HabitsProvider = ({ children }) => {
-
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
 
   const config = {
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
-
 
   const [habits, setHabits] = useState([]);
 
@@ -22,9 +20,11 @@ export const HabitsProvider = ({ children }) => {
     api.get("/habits/personal/", config).then((res) => setHabits(res.data)) ||
       [].catch((err) => console.log(err));
   };
-  
+
   useEffect(() => {
-    getHabits();
+    if (token) {
+      getHabits();
+    }
   }, []);
 
   // ADD HÁBITOS
@@ -37,7 +37,6 @@ export const HabitsProvider = ({ children }) => {
       })
       .catch((_) => toast.error(" Nao foi possivel criar o habito "));
   };
-
 
   const removeHabit = (id) => {
     api
@@ -52,7 +51,6 @@ export const HabitsProvider = ({ children }) => {
         toast.error("Nao foi possivel apagar o habito ");
       });
   };
-
 
   const updateHabit = (data) => {
     const { id, att } = data;

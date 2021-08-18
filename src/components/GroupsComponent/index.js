@@ -7,10 +7,11 @@ const GroupsComponent = ({ groups, single }) => {
       <Titulo>
         <p>Grupos</p>
       </Titulo>
-      {groups === undefined ?
-        <GroupCard obj={single}/>
-        :
-        groups.map((x, y) => <GroupCard key={y} obj={x} />)}
+      {groups === undefined ? (
+        <GroupCard obj={single} />
+      ) : (
+        groups.map((x, y) => <GroupCard key={y} obj={x} />)
+      )}
     </Container>
   );
 };

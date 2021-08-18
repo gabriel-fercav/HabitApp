@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import Activities from "../../components/Activities";
 import Goals from "../../components/Goals";
 import Header from "../../components/Header";
+import { GroupsContext } from "../../Providers/GroupsProvider";
 import { Container, ContainerCreator, ContainerUsers, Content } from "./style";
 
 const Group = () => {
+  const { group } = useContext(GroupsContext);
   return (
     <Container>
+      {console.log(group)}
       <Header />
       <h2>LOL Mobile</h2>
       <p>Grupo ruchadão</p>
