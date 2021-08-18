@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 
 const ModalGoals = ({ setShowModal, showModal, groupID }) => {
-  const [difficulty, setDifficulty] = useState("Fácil");
+  const [ difficulty, setDifficulty ] = useState("Fácil");
 
   const { createGoal } = useContext(GoalsContext)
 
@@ -53,13 +53,14 @@ const ModalGoals = ({ setShowModal, showModal, groupID }) => {
   };
 
   const handleSubmitFunction = (data) => {
-    const { title, difficulty, how_much_achieved, group } = data;
+    const { title, how_much_achieved } = data;
     const newData = {
       title: title,
       difficulty: difficulty,
       how_much_achieved: how_much_achieved,
       group: groupID,
     };
+    console.log(newData)
     createGoal(newData)
     setShowModal(!showModal);
   };
@@ -89,7 +90,7 @@ const ModalGoals = ({ setShowModal, showModal, groupID }) => {
           >
             <MenuItem value="Fácil">Fácil</MenuItem>
             <MenuItem value="Médio">Médio</MenuItem>
-            <MenuItem value="Dificil">Dificil</MenuItem>
+            <MenuItem value="Difícil">Difícil</MenuItem>
           </Select>
         </FormControl>
         <ContainerInput>

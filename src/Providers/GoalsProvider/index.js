@@ -1,114 +1,52 @@
-import { createContext , useContext, useEffect, useState } from 'react'
+import { createContext, useState } from 'react'
 import { toast } from 'react-toastify'
-import { GroupsContext } from '../GroupsProvider'
 import api from './../../services/api'
 
 export const GoalsContext = createContext([])
-export const GoalsProvider = ( { children } ) => {
-    const [ goals, setGoals ] = useState([])
-    const [ oneGoal, setOneGoal ] = useState([])
-    const [ nextPage, setNextPage ] = useState(false)
-    const [ previousPage, setPreviousPage ] = useState(false)
-<<<<<<< HEAD
+export const GoalsProvider = ({ children }) => {
+    const [goals, setGoals] = useState([])
+    const [oneGoal, setOneGoal] = useState([])
+    const [nextPage, setNextPage] = useState(false)
+    const [previousPage, setPreviousPage] = useState(false)
 
-=======
-    const [ pageCount , setPageCount ] = useState(1)
->>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
     const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
-    
+
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const { group } = useContext(GroupsContext)
-    const  id  = group.id || null
 
-    const getOneGoal = (id) => {
-        api.get(`/goals/${id}/`).then((res) => setOneGoal(res.data))
-    }
-    useEffect(() => {
-        if(token  && id !== null ){
-            setPageCount(1)
-            getGroupGoals(id)
-        }
-    }, [group])
-
-    useEffect(() => {
-        if(token  && id !== null ){
-            getGroupGoals(id)
-        }
-    }, [pageCount])
-    const getGroupGoals = (id) => {
-        const query = {
-            params: {group: id, page: pageCount}
-        }
-        api.get("/goals/", query ).then((res) =>{
-            const {previous, next} = res.data
-            if(previous !== null ){
-                setPreviousPage(true)
-            }else{
-                setPreviousPage(false)
-            }
-            if(next !== null){
-                setNextPage(true)
-            }else{
-                setNextPage(false)
-            }
-            setGoals(res.data.results)
-            })
+    const getAllGoals = (groupID, page) => {
+        api.get(`/goals/?group=${groupID}&page=${page}`, { header: { 'Authorization': 'Bearer null'} })
+            .then(response => setGoals(response.data.results))
     }
 
     const createGoal = (data) => {
-<<<<<<< HEAD
-        api.post("/goals/", data, config).then((_) => toast.success("Meta criada com sucesso!")).catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
-=======
-        api.post("/goals", data, config)
+        api.post("/goals/", data, config)
         .then((_) => toast.success("Meta criada com sucesso!"))
-        .catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
->>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
-    }
-
-    const modGoal = (id) => {
-        api.patch(`/goals/${id}/`, config)
-        .then((_) => toast.success("Meta atualizada com sucesso!"))
-        .catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
+        .catch((err) => toast.error(`Não foi possível criar a meta: "${err}"`))
     }
 
     const delGoal = (id) => {
-        api.delete(`goals/${id}`, config)
+        api.delete(`goals/${id}/`, config)
         .then((_) => toast.success("Meta deletada com sucesso!"))
-        .catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`) )
+        .catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`))
     }
-    const goNextPage = () => {
-        if(nextPage){
-        setPageCount(pageCount + 1)
-        }
-    }
-    const goPreviousPage = () => {
-        if(previousPage){
-        setPageCount(pageCount - 1)
-        }
-    }
-<<<<<<< HEAD
 
-=======
-    console.log(goals)
->>>>>>> aaf3b07ebecbee1bb8912fe5a72fbc8a24513873
+    /*
+    const getOneGoal = (id) => {
+        api.get(`/goals/${id}/`).then((res) => setOneGoal(res.data))
+    }
+
+    const modGoal = (id) => {
+        api.patch(`/goals/${id}/`, config).then((_) => toast.success("Meta atualizada com sucesso!")).catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
+    }
+    */
+
+
     return (
-        <GoalsContext.Provider value = {{
-            goals,
-            oneGoal,
-            nextPage,
-            previousPage,
-            getOneGoal,
-            getGroupGoals,
-            createGoal,
-            modGoal,
-            delGoal,
-            goNextPage,
-            goPreviousPage,
-            }}>
+        <GoalsContext.Provider value={{ goals, oneGoal, nextPage, previousPage, getAllGoals, createGoal, delGoal }}>
             {children}
         </GoalsContext.Provider>
     )
