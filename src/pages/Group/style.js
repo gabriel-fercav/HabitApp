@@ -60,9 +60,9 @@ export const IconSubscription = styled.div`
 `;
 
 export const ContainerCreator = styled.div`
-  width: 80%;
-  height: 10vh;
-  border-radius: 15px;
+  min-width: 70%;
+  min-height: 7vh;
+  border-radius: 10px;
   margin-top: 20px;
   background-color: var(--black);
   color: var(--orange);
@@ -77,16 +77,20 @@ export const ContainerCreator = styled.div`
     font-size: 16px;
   }
 
-  @media (min-width: 768px) {
+  @media(min-width: 768px) {
     margin-top: 110px;
     width: 40%;
     margin-left: 40vw;
   }
 
-  @media (min-width: 1024px) {
+  @media(min-width: 1024px) {
     margin-top: 65px;
-    width: 40%;
+    min-width: 30%;
     margin-left: 30vw;
+
+    p {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -110,8 +114,8 @@ export const ContainerUsers = styled.div`
 
   @media (min-width: 768px) {
     position: absolute;
-    left: 12vw;
-    top: 70px;
+    left: 0vw;
+    top: 120px;
     width: 30vw;
     max-height: 29vh;
 
