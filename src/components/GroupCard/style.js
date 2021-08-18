@@ -1,51 +1,40 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #000000;
-  
-  padding: 15px 26px;
-  border-radius: 15px;
   position: relative;
+  background-color: #000000;
+  padding: 15px 15px;
+  border-radius: 15px;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
-  width: 95%;
-  margin-bottom: 10px;
+
+  width: 400px;
+  min-width: 270px;
+  height: 350px;
+  margin: 10px;
 
   img {
-    position: absolute;
-    top: 20px;
-    left: 20px;
   }
 
   span {
     color: white;
   }
 
-  button {
-    margin-top: 10px;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    width: 45%;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff6109;
-    color: white;
-    font-weight: bold;
-  }
-
   @media (min-width: 768px) {
-    min-width: 45%;
-    height: 320px;
-    margin: 10px; 
+    min-height: 320px;
+    margin: 10px;
 
     span {
       font-size: 20px;
     }
-
-    button {
-      margin-top: 35px;
-    }
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
 `;
 
 export const IdGroup = styled.div`
@@ -65,7 +54,6 @@ export const IdGroup = styled.div`
 `;
 
 export const Informations = styled.div`
-  padding-top: 112px;
   margin-bottom: 20px;
 
   h2,
@@ -84,5 +72,19 @@ export const Informations = styled.div`
     p {
       font-size: 20px;
     }
-  }  
+  }
+`;
+
+export const ContainerButton = styled.div`
+  width: 100%;
+  text-align: center;
+  button {
+    width: 45%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6109;
+    color: white;
+    font-weight: bold;
+  }
 `;

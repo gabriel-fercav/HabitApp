@@ -38,18 +38,23 @@ export const Title = styled.p`
   color: #ff6109;
   text-align: left;
   width: 80%;
+  padding-bottom: 1rem;
 `;
 
 export const ContainerCards = styled.div`
   width: 100%;
-  padding-top: 1rem;
+  height: 400px;
+  /*padding-top: 1rem;*/
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  overflow-x: scroll;
 
   @media all and (min-width: 768px) {
+    overflow-x: hidden;
     overflow-y: scroll;
+    height: 100%;
     max-height: 75vh;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 `;

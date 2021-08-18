@@ -1,45 +1,65 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 70px 15px 10px 15px;
-  background-color: #3e3e3e;
-  /*width: 90%;*/
-  min-height: 20vh;
-  border-radius: 10px;
   position: relative;
+  background-color: var(--gray);
+  border-radius: 8px;
   margin: 5px;
 
   > div + div {
-    margin: 10px;
+    /*margin: 10px;*/
   }
 
   @media (min-width: 768px) {
     width: 100%;
     height: 100vh;
-    overflow-y: scroll;
   }
 
   @media (min-width: 1024px) {
-    height: 86vh;
+    max-height: 86vh;
     width: 35vw;
   }
 `;
-export const Titulo = styled.div`
-  color: white;
-  position: absolute;
-  top: 10px;
-  left: 25px;
-  font-size: 25px;
-  font-weight: bolder;
-  color: #ff6109;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+
+  > p {
+    font-size: 25px;
+    font-weight: bolder;
+    color: #ff6109;
+    text-align: left;
+    width: 80%;
+    padding-bottom: 1rem;
+  }
 `;
 
-export const AddIcon = styled.div`
+export const ContainerCard = styled.div`
+  overflow-x: scroll;
+  /*padding-top: 1.5rem;*/
+  display: flex;
+  width: 100%;
+  height: 400px;
+  @media all and (min-width: 768px) {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 75vh;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Titulo = styled.div``;
+
+export const AddIcon = styled.span`
   position: absolute;
   top: 10px;
   right: 20px;
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
 `;

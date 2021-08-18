@@ -13,18 +13,30 @@ export const ContainerText = styled.div`
 `;
 
 export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   svg {
     margin-right: 0.5rem;
   }
   span {
-    span {
+    > span {
       font-weight: bold;
+    }
+
+    button {
+      margin-left: 0.5rem;
+      background-color: transparent;
+      border: none;
     }
   }
 `;
 
 export const Card = styled.div`
-  width: 300px;
+  /*width: 300px;*/
+  /*width: 100%;*/
+  min-width: 300px;
   height: 300px;
   display: flex;
   flex-flow: column nowrap;
@@ -56,6 +68,17 @@ export const ContainerButton = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0 0.5rem 1rem;
   flex-basis: 10%;
+
+  span {
+    button {
+      color: var(--white);
+      border-bottom: 1px solid var(--orange);
+    }
+  }
+`;
+
+export const Input = styled.input`
+  width: 50px;
 `;
