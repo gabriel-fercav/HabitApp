@@ -8,7 +8,7 @@ const GroupCard = ({ obj }) => {
   const { specificGroup } = useContext(GroupsContext);
 
   const handleClick = (id) => {
-    /* history.push(`/group/${id}/`); */
+    history.push(`/group/${id}/`);
     specificGroup(id);
   };
 
