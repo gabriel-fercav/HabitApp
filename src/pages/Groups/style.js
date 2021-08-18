@@ -31,3 +31,18 @@ export const SearchIcon = styled.div`
     right: 11%;
   }
 `;
+
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 420px;
+    overflow-y: scroll;
+
+
+    @media (min-height: 1000px) {
+      height: 880px;
+    }
+
+`
