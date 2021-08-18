@@ -6,6 +6,7 @@ import {
   Title,
   Content,
   Button,
+  Input,
 } from "./styles";
 import { FaCheck, FaEdit } from "react-icons/fa";
 import { MdTitle, MdGames } from "react-icons/md";
@@ -14,17 +15,40 @@ import { HabitsContext } from "../../Providers/HabitsProvider";
 import { TiBatteryFull } from "react-icons/ti";
 import { GiLightningFrequency } from "react-icons/gi";
 import { FiPercent } from "react-icons/fi";
-const Habits = ({ habit, setShowModalUpdate, showModalUpdate }) => {
-  const [achieved, setAchieved] = useState(false);
-
-  const { removeHabit } = useContext(HabitsContext);
+import { toast } from "react-toastify";
+const Habits = ({ habit }) => {
+  const [isShow, setIsShow] = useState(false);
+  const [inputValue, setInputValue] = useState(habit.how_much_achieved);
+  const { removeHabit, updateHabit } = useContext(HabitsContext);
 
   const handleTrash = (id) => {
     removeHabit(id);
   };
 
-  const handleUpdate = () => {
-    setShowModalUpdate(!showModalUpdate);
+  const handleUpdate = (id) => {
+    if (inputValue > 100) {
+      toast.error("Digite um valor válido");
+      return;
+    }
+    if (inputValue < 100) {
+      const data = {
+        how_much_achieved: inputValue,
+        achieved: false,
+      };
+      updateHabit(data, id);
+      setIsShow(!isShow);
+    } else {
+      const data = {
+        how_much_achieved: inputValue,
+        achieved: true,
+      };
+      updateHabit(data, id);
+      setIsShow(!isShow);
+    }
+  };
+
+  const handleChangeInput = (event) => {
+    setInputValue(event.target.value);
   };
 
   return (
@@ -32,12 +56,7 @@ const Habits = ({ habit, setShowModalUpdate, showModalUpdate }) => {
       <ContainerButton>
         <span>
           <Button onClick={() => handleTrash(habit.id)}>
-            <FaCheck color={"#FF6109"} size={20} />
-          </Button>
-        </span>
-        <span>
-          <Button onClick={() => handleUpdate()}>
-            <FaEdit color="#FF6109" size={20} />
+            <FaCheck color={"#FF6109"} size={20} /> Concluir
           </Button>
         </span>
       </ContainerButton>
@@ -70,7 +89,31 @@ const Habits = ({ habit, setShowModalUpdate, showModalUpdate }) => {
         <Content>
           <span>
             <FiPercent color="#FF6109" size={20} />
-            <span>Valor alcançado:</span> {habit.how_much_achieved}{" "}
+            <span>Valor alcançado:</span>{" "}
+            {isShow ? (
+              habit.how_much_achieved
+            ) : (
+              <Input
+                type="number"
+                value={inputValue}
+                onChange={handleChangeInput}
+              ></Input>
+            )}
+            <button>
+              {isShow ? (
+                <FaEdit
+                  color="#FF6109"
+                  size={20}
+                  onClick={() => setIsShow(!isShow)}
+                />
+              ) : (
+                <FaCheck
+                  color="#FF6109"
+                  size={20}
+                  onClick={() => handleUpdate(habit.id)}
+                />
+              )}
+            </button>
           </span>
         </Content>
       </ContainerText>

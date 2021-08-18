@@ -5,15 +5,13 @@ import axios from "axios";
 
 export const HabitsContext = createContext([]);
 export const HabitsProvider = ({ children }) => {
-
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
 
   const config = {
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
-
 
   const [habits, setHabits] = useState([]);
 
@@ -37,7 +35,6 @@ export const HabitsProvider = ({ children }) => {
       .catch((_) => toast.error(" Nao foi possivel criar o habito "));
   };
 
-
   const removeHabit = (id) => {
     api
       .delete(`/habits/${id}/`, config)
@@ -52,11 +49,10 @@ export const HabitsProvider = ({ children }) => {
       });
   };
 
-
-  const updateHabit = (data) => {
-    const { id, att } = data;
+  const updateHabit = (data, id) => {
+    //const { id, att } = data;
     api
-      .patch(`habits/${id}`, att, config)
+      .patch(`/habits/${id}/`, data, config)
       .then((_) => {
         console.log("Atualizado com sucesso");
         toast.success("Habito atualizado com sucesso!");
