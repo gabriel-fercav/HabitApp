@@ -35,7 +35,7 @@ const GroupCard = ({ obj }) => {
         </Informations>
         <span>Criador: {obj.creator.username}</span>
         <ContainerButton>
-          <button onClick={() => handleClick(obj.id)}>Entrar</button>
+          <button onClick={() => handleClick(obj.id)}>Abrir</button>
         </ContainerButton>
       </Content>
     </Container>
