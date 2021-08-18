@@ -8,14 +8,14 @@ export const GroupsProvider = ({ children }) => {
   const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
+  const [oneGroup, setOneGroup] = useState(undefined);
 
   const [group, setGroup] = useState([]);
-
-  const [oneGroup, setOneGroup] = useState(undefined);
+  const [subGroups, setSubGroups] = useState([]);
 
   const config = {
     headers: {
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`,
     },
   };
 
@@ -23,16 +23,26 @@ export const GroupsProvider = ({ children }) => {
     api.get("/groups/").then((response) => setGroups(response.data.results));
   };
 
+  useEffect(() => {
+    if (token) {
+      getGroups();
+      subscriptionsGroups();
+    }
+  }, []);
+
   const specificGroup = (id) => {
     api
       .get(`/groups/${id}/`, config)
       .then((response) => setGroup(response.data))
-      .cath((err) => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    getGroups();
-  }, []);
+  const subscriptionsGroups = () => {
+    api
+      .get(`/groups/subscriptions/`, config)
+      .then((response) => setSubGroups(response.data))
+      .catch((err) => console.log(err));
+  };
 
   const subGroup = (id) => {
     api
@@ -75,6 +85,7 @@ export const GroupsProvider = ({ children }) => {
         groups,
         group,
         oneGroup,
+        subGroups,
         setOneGroup,
         subGroup,
         getGroups,

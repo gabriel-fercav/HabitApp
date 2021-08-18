@@ -9,7 +9,7 @@ const Group = () => {
   const { group } = useContext(GroupsContext);
   return (
     <Container>
-      {console.log(group[0].id)}
+      {console.log(group)}
       <Header />
       <h2>LOL Mobile</h2>
       <p>Grupo ruchadão</p>
