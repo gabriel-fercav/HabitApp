@@ -9,8 +9,16 @@ export const GlobalStyle = createGlobalStyle`
         outline: 0;
     }
 
-    body {
+    :root {
+        --gray: #3E3E3E;
+        --gray-light:  #C4C4C4;
+        --black: #000;
+        --orange: #FF6109;
+        --white: #FFF;
+    }
 
+    body {
+        font-family: 'Roboto';
     }
     
     body, input, button {
@@ -31,6 +39,22 @@ export const GlobalStyle = createGlobalStyle`
 
     ul, li {
         list-style: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 20px;
+        
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: var(--gray-light);
+        border-radius: 30px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--orange);
+        border-radius: 10px;
+        border: 5px solid var(--gray-light)
     }
 
 `;
