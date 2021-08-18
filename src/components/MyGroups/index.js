@@ -12,6 +12,7 @@ const MyGroups = () => {
     setIsShowModal(!isShowModal);
   };
 
+  const { subGroups } = useContext(GroupsContext);
   return (
     <>
       <Container>
@@ -23,7 +24,7 @@ const MyGroups = () => {
         <Content>
           <p>Meus grupos</p>
           <ContainerCard>
-            {groups.map((group) => (
+            {subGroups.map((group) => (
               <GroupCard obj={group} key={group.id} />
             ))}
           </ContainerCard>

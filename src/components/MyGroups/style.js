@@ -16,7 +16,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 86vh;
+    max-height: 86vh;
     width: 35vw;
   }
 `;
@@ -25,7 +25,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0;
 
   > p {
     font-size: 25px;
@@ -38,14 +38,17 @@ export const Content = styled.div`
 `;
 
 export const ContainerCard = styled.div`
-  overflow-y: scroll;
+  overflow-x: scroll;
   /*padding-top: 1.5rem;*/
-
-  @media all and (min-width: 768px) {
-    overflow-y: scroll;
-  }
-  height: 75vh;
+  display: flex;
   width: 100%;
+  height: 400px;
+  @media all and (min-width: 768px) {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 75vh;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Titulo = styled.div``;

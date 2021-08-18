@@ -20,8 +20,11 @@ export const HabitsProvider = ({ children }) => {
     api.get("/habits/personal/", config).then((res) => setHabits(res.data)) ||
       [].catch((err) => console.log(err));
   };
+
   useEffect(() => {
-    getHabits();
+    if (token) {
+      getHabits();
+    }
   }, []);
 
   // ADD HÁBITOS

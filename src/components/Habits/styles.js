@@ -34,7 +34,9 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 300px;
+  /*width: 300px;*/
+  /*width: 100%;*/
+  min-width: 300px;
   height: 300px;
   display: flex;
   flex-flow: column nowrap;
