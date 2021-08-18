@@ -24,9 +24,25 @@ export const SearchIcon = styled.div`
   position: absolute;
   top: 78px;
   right: 14%;
+  cursor: pointer;
 
-  @media(min-width: 768px) {
-      top: 85px;
-      right: 11%;
+  @media (min-width: 768px) {
+    top: 85px;
+    right: 11%;
   }
 `;
+
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 420px;
+    overflow-y: scroll;
+
+
+    @media (min-height: 1000px) {
+      height: 880px;
+    }
+
+`

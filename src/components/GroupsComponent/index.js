@@ -1,16 +1,16 @@
-import Group from "../Group";
+import GroupCard from "../GroupCard";
 import { Titulo, Container } from "./style";
 
-const GroupsComponent = () => {
+const GroupsComponent = ({ groups, single }) => {
   return (
     <Container>
       <Titulo>
         <p>Grupos</p>
       </Titulo>
-      <Group />
-      <Group />
-      <Group />
-      <Group />
+      {groups === undefined ?
+        <GroupCard obj={single}/>
+        :
+        groups.map((x, y) => <GroupCard key={y} obj={x} />)}
     </Container>
   );
 };
