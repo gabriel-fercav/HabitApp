@@ -23,6 +23,10 @@ export const Container = styled.div`
   span {
     margin-right: 5px;
   }
+
+  /* @media(min-width: 768px) {
+    height: 295px;
+  } */
 `;
 
 export const DeleteIcon = styled.div`
