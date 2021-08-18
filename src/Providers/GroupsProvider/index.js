@@ -15,12 +15,14 @@ export const GroupsProvider = ({ children }) => {
 
   const config = {
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 
   const getGroups = () => {
-    api.get("/groups/?category=Gamer").then((response) => setGroups(response.data.results));
+    api
+      .get("/groups/?category=Gamer")
+      .then((response) => setGroups(response.data.results));
   };
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export const GroupsProvider = ({ children }) => {
 
   const specificGroup = (id) => {
     api
-      .get(`/groups/${id}/`, config)
+      .get(`/groups/${id}/`)
       .then((response) => setGroup(response.data))
       .catch((err) => console.log(err));
   };
@@ -46,10 +48,9 @@ export const GroupsProvider = ({ children }) => {
 
   const subGroup = (id) => {
     api
-      .post(`/groups/${id}/subscribe/`)
+      .post(`/groups/${id}/subscribe/`, config)
       .then((_) => toast.success("Inscrito com sucesso!"))
       .catch((_) => toast.error("Nao foi possivel se inscrever "));
-    setGroups(api.get("/groups/subscriptions/", config));
   };
 
   const categoryGroup = (params) => {
