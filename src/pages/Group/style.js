@@ -124,7 +124,7 @@ export const ContainerUsers = styled.div`
     left: 15vw;
     top: 185px;
     width: 30vw;
-    max-height: 29vh;
+    max-height: 19vh;
 
     p {
       position: unset;
