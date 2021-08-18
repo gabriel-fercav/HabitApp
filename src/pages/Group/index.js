@@ -39,7 +39,7 @@ const Group = () => {
         })}
       </ContainerUsers>
       <Content>
-        <Goals />
+        <Goals groupID={group.id} />
         <Activities />
       </Content>
     </Container>

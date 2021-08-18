@@ -8,7 +8,9 @@ export const GoalsProvider = ( { children } ) => {
     const [ oneGoal, setOneGoal ] = useState([])
     const [ nextPage, setNextPage ] = useState(false)
     const [ previousPage, setPreviousPage ] = useState(false)
+
     const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
+    
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -34,15 +36,19 @@ export const GoalsProvider = ( { children } ) => {
             setGoals(res.data)
             })
     }
+
     const createGoal = (data) => {
-        api.post("/goals", data, config).then((_) => toast.success("Meta criada com sucesso!")).catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
+        api.post("/goals/", data, config).then((_) => toast.success("Meta criada com sucesso!")).catch((err) => toast.error(`Nao foi possivel criar a meta: "${err}"`))
     }
+
     const modGoal = (id) => {
         api.patch(`/goals/${id}/`, config).then((_) => toast.success("Meta atualizada com sucesso!")).catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
     }
+
     const delGoal = (id) => {
         api.delete(`goals/${id}`, config).then((_) => toast.success("Meta deletada com sucesso!")).catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`) )
     }
+
     return (
         <GoalsContext.Provider value = {{goals, oneGoal, nextPage, previousPage, getOneGoal, getGroupGoals, createGoal, modGoal, delGoal}}>
             {children}

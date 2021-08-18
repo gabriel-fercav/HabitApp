@@ -9,7 +9,6 @@ const HabitsContainer = () => {
   const [showModal, setShowModal] = useState(false);
 
   const { habits } = useContext(HabitsContext);
-  console.log(habits);
   const handleAddHabits = () => {
     setShowModal(!showModal);
   };
