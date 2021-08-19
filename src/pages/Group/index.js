@@ -9,6 +9,7 @@ import {
   ContainerUsers,
   Content,
   IconSubscription,
+  OverflowUsers,
 } from "./style";
 import { IoLogIn } from "react-icons/io5";
 import { useParams } from "react-router-dom";
@@ -50,9 +51,11 @@ const Group = () => {
       </ContainerCreator>
       <ContainerUsers>
         <h3>Usuários</h3>
-        {users_on_group?.map((user) => {
-          return <p>{user.username}</p>;
-        })}
+        <OverflowUsers>
+          {users_on_group?.map((user) => {
+            return <p>{user.username}</p>;
+          })}
+        </OverflowUsers>
       </ContainerUsers>
       <Content>
         <Goals groupID={id} />
