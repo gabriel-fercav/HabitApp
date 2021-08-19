@@ -56,7 +56,7 @@ const Habits = ({ habit }) => {
   return (
     <Card>
       <ContainerButton>
-          <button className='finish' onClick={() => handleTrash(habit.id)}>
+          <button className="finish" onClick={() => handleTrash(habit.id)}>
             <FaCheck color={"#FF6109"} size={20} />
           </button>
       </ContainerButton>

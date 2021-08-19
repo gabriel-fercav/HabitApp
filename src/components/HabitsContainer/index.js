@@ -17,7 +17,7 @@ const HabitsContainer = () => {
   return (
     <Container>
       <IconButton style = {Button} onClick={() => handleAddHabits()}>
-        <IoAddCircle size={"25px"} color={"#0BAC1B"} />
+        <IoAddCircle size={"25px"} color={"#ff6109"} />
       </IconButton>
       <Content>
         <Title> Meus Hábitos </Title>

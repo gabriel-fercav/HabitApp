@@ -63,4 +63,8 @@ export const AddIcon = styled.span`
   .iconButton {
     bottom: 5px;
   }
+
+  .iconButton:hover {
+    background-color: rgb(45,45,45);
+  }
 `;
