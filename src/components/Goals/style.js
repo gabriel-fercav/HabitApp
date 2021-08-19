@@ -47,12 +47,12 @@ export const OverflowGoals = styled.div`
 
 export const AddIcon = styled.div`
   position: absolute;
-  top: 15px;
+  top: 3px;
   right: 60px;
 `;
 
 export const SearchIcon = styled.div`
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: 3px;
+  right: 20px;
 `;

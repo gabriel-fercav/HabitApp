@@ -19,10 +19,9 @@ const Routes = () => {
       <Route path="/groups">
         <Groups />
       </Route>
-      <Route path="/group">
+      <Route exact path="/group/:id">
         <Group />
       </Route>
-      <Route path="/group/:id/"></Route>
     </Switch>
   );
 };

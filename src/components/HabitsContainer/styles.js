@@ -14,14 +14,12 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: transparent;
-  border: none;
-  z-index: 1;
-`;
+export const Button = {
+  position: "absolute",
+  top: "5px",
+  right: "15px",
+  zIndex: "1",
+};
 
 export const Content = styled.div`
   display: flex;
@@ -46,11 +44,11 @@ export const ContainerCards = styled.div`
   height: 400px;
   /*padding-top: 1rem;*/
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @media all and (min-width: 768px) {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
     max-height: 75vh;
     flex-wrap: wrap;
