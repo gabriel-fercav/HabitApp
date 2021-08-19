@@ -13,13 +13,14 @@ import {
 import { IoLogIn } from "react-icons/io5";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { IconButton } from "@material-ui/core";
+
 const Group = () => {
   const { group, specificGroup } = useContext(GroupsContext);
   const { users_on_group } = group;
   const { subGroup } = useContext(GroupsContext);
 
   const { id } = useParams();
-
   useEffect(() => {
     if (id) {
       specificGroup(id);
@@ -36,11 +37,13 @@ const Group = () => {
       <h2>{group.name}</h2>
       <p>{group.description}</p>
       <IconSubscription>
+        <IconButton color = "rgba(0, 0, 0, 0.54)">
         <IoLogIn
           color="var(--orange)"
           size="45"
           onClick={() => handleClick(group.id)}
         />
+        </IconButton>
       </IconSubscription>
       <ContainerCreator>
         <h3>
