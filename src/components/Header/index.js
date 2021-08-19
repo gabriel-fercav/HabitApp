@@ -1,6 +1,6 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
-import { UseStyles } from "./styles";
 import { useHistory } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -13,12 +13,64 @@ import PersonIcon from "@material-ui/icons/Person";
 import GroupIcon from "@material-ui/icons/Group";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import { useContext } from "react"
+import { useContext } from "react";
 import { UserContext } from "../../Providers/UserProvider";
+
+const UseStyles = makeStyles((theme) => ({
+  grow: {
+    flexGrow: 1,
+  },
+  header: {
+    backgroundColor: "#000",
+    //position: "fixed",
+    width: "100%",
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    display: "flex",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+      fontSize: "2.2rem",
+    },
+    fontFamily: "Orbitron",
+    color: "#FF6109",
+    fontWeight: "bold",
+  },
+
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+  sectionMobile: {
+    display: "flex",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  containerIcon: {
+    padding: "7px",
+    margin: "2px",
+    transition: "all 500ms ease-in-out",
+    "&:hover": {
+      backgroundColor: "#3E3E3E",
+    },
+  },
+  icon: {
+    color: "#FF6109",
+  },
+  text: {
+    fontFamily: "Orbitron",
+    fontWeight: "bold",
+  },
+}));
 
 const Header = () => {
   const classes = UseStyles();
-  const { logOut } = useContext(UserContext)
+  const { logOut } = useContext(UserContext);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
