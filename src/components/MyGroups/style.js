@@ -38,14 +38,14 @@ export const Content = styled.div`
 `;
 
 export const ContainerCard = styled.div`
-  overflow-x: scroll;
+  overflow-x: auto;
   /*padding-top: 1.5rem;*/
   display: flex;
   width: 100%;
   height: 400px;
   @media all and (min-width: 768px) {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 75vh;
     flex-wrap: wrap;
   }

@@ -44,11 +44,11 @@ export const ContainerCards = styled.div`
   height: 400px;
   /*padding-top: 1rem;*/
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   @media all and (min-width: 768px) {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
     max-height: 75vh;
     flex-wrap: wrap;
