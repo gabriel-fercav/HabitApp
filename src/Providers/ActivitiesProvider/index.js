@@ -2,22 +2,22 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { GroupsContext } from "../GroupsProvider";
 import api from "./../../services/api";
-
+import { UserContext } from "../UserProvider";
 export const ActivitiesContext = createContext([]);
 export const ActivitiesProvider = ({ children }) => {
-  const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [activities, setActivities] = useState([]);
   const [activity, setActivity] = useState([]);
   const [nextPage, setNextPage] = useState(false);
   const [previousPage, setPreviousPage] = useState(false);
   const [countPage, setCountPage] = useState(1);
 
+  const { token } = useContext(UserContext);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  //const { group } = useContext(GroupsContext);
   //const id = group.id || null;
   const getGroupActivities = (id) => {
     const query = {

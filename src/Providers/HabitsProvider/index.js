@@ -1,11 +1,14 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { UserContext } from "../UserProvider";
 import { toast } from "react-toastify";
 import api from "./../../services/api";
 import axios from "axios";
 
 export const HabitsContext = createContext([]);
 export const HabitsProvider = ({ children }) => {
-  const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+
+  const { token } = useContext(UserContext);
 
   const config = {
     headers: {

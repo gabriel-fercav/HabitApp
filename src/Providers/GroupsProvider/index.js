@@ -1,11 +1,11 @@
 import api from "./../../services/api";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
-
+import { UserContext } from "../UserProvider";
 export const GroupsContext = createContext([]);
 
 export const GroupsProvider = ({ children }) => {
-  const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
+  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
   const [oneGroup, setOneGroup] = useState(undefined);
@@ -16,6 +16,15 @@ export const GroupsProvider = ({ children }) => {
   const [nextPage, setNextPage] = useState(false);
   const [previousPage, setPreviousPage] = useState(false);
   const [pageCount, setPageCount] = useState(1);
+
+  const { token } = useContext(UserContext);
+
+  useEffect(() => {
+    if (token) {
+      getGroups();
+      subscriptionsGroups();
+    }
+  }, [token]);
 
   const config = {
     headers: {
@@ -58,13 +67,6 @@ export const GroupsProvider = ({ children }) => {
       setPageCount(page);
     }
   };
-
-  useEffect(() => {
-    if (token) {
-      getGroups();
-      subscriptionsGroups();
-    }
-  }, []);
 
   const specificGroup = (id) => {
     api
