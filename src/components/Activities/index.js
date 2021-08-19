@@ -33,11 +33,6 @@ const Activities = ({ id }) => {
           />
         </IconButton>
       </AddIcon>
-      <SearchIcon>
-        <IconButton>
-          <FaSearch size="25" color="var(--orange)" />
-        </IconButton>
-      </SearchIcon>
       <h3>Atividades</h3>
       {showModal && (
         <ModalActivities

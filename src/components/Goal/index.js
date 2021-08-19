@@ -1,5 +1,5 @@
 import { Container, DeleteIcon, EditIcon } from "./style";
-import { MdDeleteForever, MdEdit } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
 import { useContext } from 'react'
 import { GoalsContext } from "../../Providers/GoalsProvider";
 import { GoGraph } from "react-icons/go";
@@ -13,9 +13,7 @@ const Goal = ({obj}) => {
   return (
     <Container>
       <DeleteIcon onClick={() => delGoal(obj.id)}>
-        <IconButton color = "secondary">
-          <MdDeleteForever size="30" color="var(--orange)" />
-        </IconButton>
+        <FaCheck color={"#FF6109"} size={20} />
       </DeleteIcon>
       <div>
         <span>
@@ -29,11 +27,6 @@ const Goal = ({obj}) => {
         </span>
         <h4>{obj.difficulty}</h4>
       </div>
-      <EditIcon>
-        <IconButton color = "secondary" >
-          <MdEdit size="30" color="var(--orange)" />
-        </IconButton>
-      </EditIcon>
     </Container>
   );
 };
