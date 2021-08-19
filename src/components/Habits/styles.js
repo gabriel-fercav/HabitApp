@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerText = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -14,6 +15,7 @@ export const ContainerText = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
 
@@ -34,20 +36,19 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
-  /*width: 300px;*/
-  /*width: 100%;*/
-  min-width: 300px;
-  height: 300px;
+  min-width: 90%;
+  height: 240px;
   display: flex;
+  position: relative;
   flex-flow: column nowrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   border-radius: 0.95rem;
   background-color: var(--black);
   color: #ffff;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 1.5rem;
 
   @media all and (min-width: 768px) {
     width: 80%;
@@ -65,18 +66,31 @@ export const Button = styled.button`
 `;
 
 export const ContainerButton = styled.div`
+  position: absolute;
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 0 0.5rem 1rem;
-  flex-basis: 10%;
+  flex-direction: row-reverse;
+  width: 88%;
+  /* justify-content: space-between; */
+  padding-bottom: 1rem;
 
-  span {
-    button {
-      color: var(--white);
-      border-bottom: 1px solid var(--orange);
-    }
+  button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    border-bottom: 0px solid;
+    border: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
   }
+
+  button:hover {
+    background-color: rgb(45,45,45); 
+  }
+
+
 `;
 
 export const Input = styled.input`

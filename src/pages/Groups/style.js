@@ -37,7 +37,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 500px;
+  height: 430px;
   overflow-y: scroll;
 
   @media (min-height: 1000px) {

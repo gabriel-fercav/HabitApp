@@ -7,6 +7,7 @@ import {
   Content,
   Button,
   Input,
+  Finish
 } from "./styles";
 import { FaCheck, FaEdit } from "react-icons/fa";
 import { MdTitle, MdGames } from "react-icons/md";
@@ -55,11 +56,9 @@ const Habits = ({ habit }) => {
   return (
     <Card>
       <ContainerButton>
-        <span>
-          <Button onClick={() => handleTrash(habit.id)}>
-            <FaCheck color={"#FF6109"} size={20} /> Concluir
-          </Button>
-        </span>
+          <button className='finish' onClick={() => handleTrash(habit.id)}>
+            <FaCheck color={"#FF6109"} size={20} />
+          </button>
       </ContainerButton>
       <ContainerText>
         <Content>
@@ -83,16 +82,16 @@ const Habits = ({ habit }) => {
         <Content>
           <GiLightningFrequency color="#FF6109" size={20} />
           <span>
-            <span>Frequencia: </span>
+            <span>Frequência: </span>
             {habit.frequency}
           </span>
         </Content>
         <Content>
           <span>
             <FiPercent color="#FF6109" size={20} />
-            <span>Valor alcançado:</span>{" "}
+            <span>Progressão:</span>{" "}
             {isShow ? (
-              habit.how_much_achieved
+              habit.how_much_achieved + "%"
             ) : (
               <Input
                 type="number"
