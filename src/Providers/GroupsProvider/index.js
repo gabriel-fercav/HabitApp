@@ -85,8 +85,9 @@ export const GroupsProvider = ({ children }) => {
       .post(`/groups/${id}/subscribe/`, {}, config)
       .then((_) => {
         toast.success("Inscrito com sucesso!");
+        specificGroup(id)
       })
-      .catch((_) => toast.error("Nao foi possivel se inscrever "));
+      .catch((err) => toast.error(`Nao foi possivel se inscrever : "${err}"`));
   };
 
   const categoryGroup = (params) => {
