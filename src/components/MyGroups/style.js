@@ -41,6 +41,7 @@ export const ContainerCard = styled.div`
   overflow-x: auto;
   /*padding-top: 1.5rem;*/
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 400px;
   @media all and (min-width: 768px) {
@@ -58,8 +59,7 @@ export const AddIcon = styled.span`
   top: 10px;
   right: 20px;
 
-  button {
-    background-color: transparent;
-    border: none;
+  .iconButton {
+    bottom: 5px;
   }
 `;

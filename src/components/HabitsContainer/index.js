@@ -4,6 +4,7 @@ import ModalHabits from "../ModalHabits";
 import { IoAddCircle } from "react-icons/io5";
 import Habits from "./../Habits";
 import { HabitsContext } from "../../Providers/HabitsProvider";
+import { IconButton } from "@material-ui/core";
 
 const HabitsContainer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +16,9 @@ const HabitsContainer = () => {
 
   return (
     <Container>
-      <Button onClick={() => handleAddHabits()}>
+      <IconButton style = {Button} onClick={() => handleAddHabits()}>
         <IoAddCircle size={"25px"} color={"#0BAC1B"} />
-      </Button>
+      </IconButton>
       <Content>
         <Title> Meus Hábitos </Title>
 

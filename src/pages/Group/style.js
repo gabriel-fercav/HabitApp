@@ -20,6 +20,8 @@ export const Container = styled.div`
   p {
     color: var(--white);
     font-size: 20px;
+    width: 90%;
+    text-align: center;
   }
 
   @media (min-width: 768px) {
@@ -56,7 +58,7 @@ export const IconSubscription = styled.div`
   }
 
   @media (min-width: 1024px) {
-    right: 25vw;
+    right: 20vw;
   }
 `;
 
@@ -102,12 +104,12 @@ export const ContainerCreator = styled.div`
 
 export const ContainerUsers = styled.div`
   width: 70%;
-  max-height: 20vh;
+  min-height: 22vh;
+  max-height: 30vh;
   background-color: var(--black);
   margin: 10px 2% 30px 1.5%;
   border-radius: 10px;
-  padding: 15px;
-  overflow-x: auto;
+  padding: 15px 0 0 15px;
 
   h3 {
     color: var(--orange);
@@ -116,14 +118,15 @@ export const ContainerUsers = styled.div`
   p {
     padding-left: 30px;
     padding-top: 10px;
+    text-align: start;
   }
 
   @media (min-width: 768px) {
     position: absolute;
     left: 15vw;
     top: 185px;
-    width: 30vw;
-    max-height: 19vh;
+    width: 30vw;/* 
+    max-height: 5vh; */
 
     p {
       position: unset;
@@ -143,6 +146,19 @@ export const ContainerUsers = styled.div`
   }
 `;
 
+export const OverflowUsers = styled.div`
+  overflow: auto;
+  max-height: 20vh;
+
+  @media (min-width: 768px) {
+    max-height: 15vh;
+  }
+
+  @media (min-width: 1024px) {
+    overflow: hidden;
+  }
+`;
+
 export const Content = styled.div`
   width: 100%;
   display: flex;
@@ -157,7 +173,7 @@ export const Content = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 85vw;
-    height: 45vh;
+    height: 40vh;
     border-radius: 15px;
     flex-direction: row;
     align-items: center;
