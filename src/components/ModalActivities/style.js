@@ -9,12 +9,6 @@ export const Container = styled.div`
   width: 80%;
   z-index: 2;
 
-  p {
-      color: var(--gray);
-      font-size: 17px;
-      position: inherit;
-  }
-
   > button {
     position: absolute;
     top: 15px;
@@ -51,6 +45,15 @@ export const Container = styled.div`
       font-family: "Roboto";
       transition: all 0.2s;
     }
+  }
+`;
+
+export const Informations = styled.div`
+  width: 100%;
+  p {
+    color: var(--gray);
+    font-size: 17px;
+    position: inherit;
   }
 `;
 

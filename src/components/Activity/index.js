@@ -3,6 +3,7 @@ import { MdStars, MdDeleteForever, MdEdit } from "react-icons/md";
 import { IconButton } from "@material-ui/core";
 import { IoTime } from "react-icons/io5";
 import { format, utcToZonedTime } from "date-fns-tz";
+
 const Activity = ({ activity }) => {
   const date = activity.realization_time;
   const timeZone = "Brasil/São Paulo";

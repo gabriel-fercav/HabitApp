@@ -1,16 +1,10 @@
-import { useState, useContext } from "react";
-import { Container, ContainerInput } from "./style";
+import { useContext } from "react";
+import { Container, Informations } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import CloseIcon from "@material-ui/icons/Close";
-import {
-  FormControl,
-  TextField,
-  InputLabel,
-  Select,
-  MenuItem,
-} from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { ActivitiesContext } from "../../Providers/ActivitiesProvider";
 
@@ -25,8 +19,6 @@ const useStyles = makeStyles({
 });
 
 const ModalActivities = ({ setShowModal, showModal, id }) => {
-  /* const [ difficulty, setDifficulty ] = useState("Fácil"); */
-
   const { createActivity } = useContext(ActivitiesContext);
 
   const schema = yup.object().shape({
@@ -40,10 +32,6 @@ const ModalActivities = ({ setShowModal, showModal, id }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  /* const handleInputDificulty = (event) => {
-    setDifficulty(event.target.value);
-  }; */
-
   const handleClosed = () => {
     setShowModal(!showModal);
   };
@@ -52,7 +40,6 @@ const ModalActivities = ({ setShowModal, showModal, id }) => {
     const { title, realization_time } = data;
     const newData = {
       title: title,
-      /* difficulty: difficulty, */
       realization_time: realization_time,
       group: id,
     };
@@ -85,26 +72,11 @@ const ModalActivities = ({ setShowModal, showModal, id }) => {
           label="Data e hora de realização"
           fullWidth
         />
-
-        <p>Data: ano-mês-dia</p>
-        <p>Hora: horas:minutos:segundos</p>
-        <p>Exemplo: 2021-08-20 09:55:00</p>
-        {/* <FormControl required fullWidth className={classes.input}>
-          <InputLabel>Dificuldade</InputLabel>
-          <Select
-            value={difficulty}
-            onChange={handleInputDificulty}
-            name="dificulty"
-          >
-            <MenuItem value="Fácil">Fácil</MenuItem>
-            <MenuItem value="Médio">Médio</MenuItem>
-            <MenuItem value="Difícil">Difícil</MenuItem>
-          </Select>
-        </FormControl> */}
-        {/* <ContainerInput>
-          <label htmlFor="realization_time">Quanto você atingiu? </label>
-          <input type="number" {...register("realization_time")} />
-        </ContainerInput> */}
+        <Informations>
+          <p>Data: ano-mês-dia</p>
+          <p>Hora: horas:minutos:segundos</p>
+          <p>Exemplo: 2021-08-20 09:55:00</p>
+        </Informations>
         <button type="submit">Enviar</button>
       </form>
     </Container>
