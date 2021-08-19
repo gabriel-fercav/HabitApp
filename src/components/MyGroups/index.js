@@ -19,11 +19,11 @@ const MyGroups = () => {
       <Container>
         <AddIcon>
           <IconButton className = "iconButton" onClick={() => handleAddGroup(setIsShowModal, isShowModal)}>
-            <MdLibraryAdd size="30" color="#ff6109" />
+            <MdLibraryAdd size="26" color="#ff6109" />
           </IconButton>
         </AddIcon>
         <Content>
-          <p>Meus grupos</p>
+          <p>Meus Grupos</p>
           <ContainerCard>
             {subGroups.map((group) => (
               <GroupCard obj={group} key={group.id} />

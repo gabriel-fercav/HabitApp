@@ -27,7 +27,6 @@ const UserSideBar = () => {
           width="200"
           alt="avatar de usuário"
         ></img>
-        <RiPencilFill color="#FF6109" size="30" />
       </div>
       <ContentName>
         <FaUserCircle color="#FF6109" size="20" />
