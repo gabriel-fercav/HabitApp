@@ -6,16 +6,11 @@ import {
   Informations,
 } from "./style";
 import { useHistory } from "react-router";
-import { GroupsContext } from "../../Providers/GroupsProvider";
-import { useContext } from "react";
-
 const GroupCard = ({ obj }) => {
   const history = useHistory();
-  const { specificGroup } = useContext(GroupsContext);
 
   const handleClick = (id) => {
     history.push(`/group/${id}/`);
-    specificGroup(id);
   };
 
   return (

@@ -2,7 +2,6 @@ import api from "./../../services/api";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-
 export const GroupsContext = createContext([]);
 
 export const GroupsProvider = ({ children }) => {
@@ -14,9 +13,9 @@ export const GroupsProvider = ({ children }) => {
   const [group, setGroup] = useState([]);
   const [subGroups, setSubGroups] = useState([]);
 
-  const [ nextPage, setNextPage ] = useState(false)
-  const [ previousPage, setPreviousPage ] = useState(false)
-  const [ pageCount, setPageCount ] = useState(1)
+  const [nextPage, setNextPage] = useState(false);
+  const [previousPage, setPreviousPage] = useState(false);
+  const [pageCount, setPageCount] = useState(1);
 
   const config = {
     headers: {
@@ -26,40 +25,39 @@ export const GroupsProvider = ({ children }) => {
 
   const getGroups = () => {
     const query = {
-      params: {page: pageCount, category: 'gamer'}
-    }
-    api
-      .get("/groups/", query)
-      .then((response) => {
-        const { next, previous } = response.data
-        if( next === null ){
-          setNextPage(false)
-        }else{
-          setNextPage(true)
-        }
-        if( previous === null ){
-          setPreviousPage(false)
-        }else{
-          setPreviousPage(true)
-        }
-        setGroups(response.data.results)});
+      params: { page: pageCount, category: "gamer" },
+    };
+    api.get("/groups/", query).then((response) => {
+      const { next, previous } = response.data;
+      if (next === null) {
+        setNextPage(false);
+      } else {
+        setNextPage(true);
+      }
+      if (previous === null) {
+        setPreviousPage(false);
+      } else {
+        setPreviousPage(true);
+      }
+      setGroups(response.data.results);
+    });
   };
   const goNextPage = (page = false) => {
-    if(nextPage && !page){
-      setPageCount(pageCount + 1)
+    if (nextPage && !page) {
+      setPageCount(pageCount + 1);
     }
-    if(page){
-      setPageCount(page)
+    if (page) {
+      setPageCount(page);
     }
-  }
+  };
   const goPreviousPage = (page = false) => {
-    if(previousPage && !page){
-      setPageCount(pageCount - 1)
+    if (previousPage && !page) {
+      setPageCount(pageCount - 1);
     }
-    if(page){
-      setPageCount(page)
+    if (page) {
+      setPageCount(page);
     }
-  }
+  };
 
   useEffect(() => {
     if (token) {

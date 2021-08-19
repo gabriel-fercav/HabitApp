@@ -11,15 +11,23 @@ import {
   IconSubscription,
 } from "./style";
 import { IoLogIn } from "react-icons/io5";
-
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 const Group = () => {
-  const { group } = useContext(GroupsContext);
+  const { group, specificGroup } = useContext(GroupsContext);
   const { users_on_group } = group;
   const { subGroup } = useContext(GroupsContext);
 
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      specificGroup(id);
+    }
+  }, []);
+
   const handleClick = (id) => {
     subGroup(id);
-    console.log(id);
   };
 
   return (
@@ -47,8 +55,8 @@ const Group = () => {
         })}
       </ContainerUsers>
       <Content>
-        <Goals groupID={group.id} />
-        <Activities />
+        <Goals groupID={id} />
+        <Activities id={id} />
       </Content>
     </Container>
   );

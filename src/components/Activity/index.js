@@ -2,7 +2,7 @@ import { Container, DeleteIcon, EditIcon } from "./style";
 import { MdStars, MdDeleteForever, MdEdit } from "react-icons/md";
 import { IoTime } from "react-icons/io5";
 
-const Activity = () => {
+const Activity = ({ activity }) => {
   return (
     <Container>
       <DeleteIcon>
@@ -12,13 +12,13 @@ const Activity = () => {
         <span>
           <MdStars size="20" color="var(--orange)" />
         </span>
-        <h4>Chutar cachorro até sexta</h4>
+        <h4>{activity.title}</h4>
       </div>
       <div>
         <span>
           <IoTime size="20" color="var(--orange)" />
         </span>
-        <h4>20/08/2021 - 08:00</h4>
+        <h4>{activity.realization_time}</h4>
       </div>
       <EditIcon>
         <MdEdit size="30" color="var(--orange)" />
