@@ -16,6 +16,7 @@ import { TiBatteryFull } from "react-icons/ti";
 import { GiLightningFrequency } from "react-icons/gi";
 import { FiPercent } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { IconButton } from "@material-ui/core";
 const Habits = ({ habit }) => {
   const [isShow, setIsShow] = useState(true);
   const [inputValue, setInputValue] = useState(habit.how_much_achieved);
@@ -101,17 +102,21 @@ const Habits = ({ habit }) => {
             )}
             <button>
               {isShow ? (
+                <IconButton color = "secondary" size = "small" >
                 <FaEdit
                   color="#FF6109"
                   size={20}
                   onClick={() => setIsShow(!isShow)}
                 />
+                </IconButton>
               ) : (
+                <IconButton color = "secondary" size = "small">
                 <FaCheck
                   color="#FF6109"
                   size={20}
                   onClick={() => handleUpdate(habit.id)}
                 />
+                </IconButton>
               )}
             </button>
           </span>

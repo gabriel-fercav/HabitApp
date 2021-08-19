@@ -6,6 +6,7 @@ import { useContext } from 'react'
 import Goal from "../Goal";
 import ModalGoals from "../ModalGoals";
 import { GoalsContext } from "../../Providers/GoalsProvider";
+import { IconButton } from "@material-ui/core";
 
 const Goals = ({groupID}) => {
 
@@ -24,10 +25,14 @@ const Goals = ({groupID}) => {
   return (
     <Container>
       <AddIcon onClick={() => handleAddGoals()}>
-        <MdLibraryAdd size="25" color="var(--orange)" />
+        <IconButton>
+          <MdLibraryAdd size="25" color="var(--orange)" />
+        </IconButton>
       </AddIcon>
       <SearchIcon>
-        <FaSearch size="25" color="var(--orange)" />
+        <IconButton>
+          <FaSearch size="25" color="var(--orange)" />
+        </IconButton>
       </SearchIcon>
       <h3>Metas</h3>
       {showModal && (

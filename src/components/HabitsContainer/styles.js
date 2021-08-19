@@ -14,14 +14,12 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: transparent;
-  border: none;
-  z-index: 1;
-`;
+export const Button = {
+  position: "absolute",
+  top: "5px",
+  right: "15px",
+  zIndex: "1",
+};
 
 export const Content = styled.div`
   display: flex;
