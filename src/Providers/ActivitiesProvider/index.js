@@ -27,7 +27,7 @@ export const ActivitiesProvider = ({ children }) => {
       .get(`/activities/?group=${id}&page=${countPage}`, query)
       .then((res) => {
         const { next, previous } = res.data;
-        console.log(res.data);
+        /* console.log(res.data); */
         if (next === null) {
           setNextPage(false);
         } else {

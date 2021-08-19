@@ -5,21 +5,29 @@ import { IconButton } from "@material-ui/core";
 import { FaSearch } from "react-icons/fa";
 import { useContext, useEffect } from "react";
 import { ActivitiesContext } from "../../Providers/ActivitiesProvider";
+import { useState } from "react";
+import ModalActivities from "../ModalActivities"
 
 const Activities = ({ id }) => {
+  const [showModal, setShowModal] = useState(false);
   const { getGroupActivities, activities } = useContext(ActivitiesContext);
+
+  const handleAddActivities = () => {
+    setShowModal(!showModal);
+    getGroupActivities(id);
+  };
 
   useEffect(() => {
     getGroupActivities(id);
-  }, []);
+  }, [activities]);
 
-  console.log(activities);
+  /* console.log(activities); */
 
   return (
     <Container>
       <AddIcon>
         <IconButton>
-          <MdLibraryAdd size="25" color="var(--orange)" />
+          <MdLibraryAdd size="25" color="var(--orange)" onClick={handleAddActivities}/>
         </IconButton>
       </AddIcon>
       <SearchIcon>
@@ -28,6 +36,13 @@ const Activities = ({ id }) => {
         </IconButton>
       </SearchIcon>
       <h3>Atividades</h3>
+      {showModal && (
+        <ModalActivities
+          setShowModal={setShowModal}
+          showModal={showModal}
+          id={id}
+        />
+      )}
       <OverflowActivities>
         {activities.map((activity) => (
           <Activity key={activity.id} activity={activity} />

@@ -125,8 +125,7 @@ export const ContainerUsers = styled.div`
     position: absolute;
     left: 15vw;
     top: 185px;
-    width: 30vw;/* 
-    max-height: 5vh; */
+    width: 30vw;
 
     p {
       position: unset;
@@ -135,7 +134,7 @@ export const ContainerUsers = styled.div`
 
   @media (min-width: 1024px) {
     width: 25%;
-    max-height: 290px;
+    max-height: 59vh;
     position: absolute;
     left: 10px;
     top: 46vh;
@@ -155,7 +154,7 @@ export const OverflowUsers = styled.div`
   }
 
   @media (min-width: 1024px) {
-    overflow: hidden;
+    max-height: 20vh;
   }
 `;
 
