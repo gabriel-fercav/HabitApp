@@ -1,7 +1,7 @@
 import { Container, DeleteIcon, EditIcon } from "./style";
-import { MdStars, MdDeleteForever, MdEdit } from "react-icons/md";
-import { IconButton } from "@material-ui/core";
+import { MdStars } from "react-icons/md";
 import { IoTime } from "react-icons/io5";
+import { FaCheck } from "react-icons/fa"
 import { format, utcToZonedTime } from "date-fns-tz";
 
 const Activity = ({ activity }) => {
@@ -14,9 +14,7 @@ const Activity = ({ activity }) => {
   return (
     <Container>
       <DeleteIcon>
-        <IconButton color = "secondary">
-          <MdDeleteForever size="30" color="var(--orange)" />
-        </IconButton>
+        <FaCheck color={"#FF6109"} size={20} />
       </DeleteIcon>
       <div>
         <span>
@@ -30,11 +28,6 @@ const Activity = ({ activity }) => {
         </span>
         <h4>{output}</h4>
       </div>
-      <EditIcon>
-        <IconButton color = "secondary">
-          <MdEdit size="30" color="var(--orange)" />
-        </IconButton>
-      </EditIcon>
     </Container>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { AddIcon, Container, OverflowGoals, SearchIcon } from "./style";
 import { MdLibraryAdd } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
@@ -24,15 +25,8 @@ const Goals = ({ groupID }) => {
   return (
     <Container>
       <AddIcon onClick={() => handleAddGoals()}>
-        <IconButton>
           <MdLibraryAdd size="25" color="var(--orange)" />
-        </IconButton>
       </AddIcon>
-      <SearchIcon>
-        <IconButton>
-          <FaSearch size="25" color="var(--orange)" />
-        </IconButton>
-      </SearchIcon>
       <h3>Metas</h3>
       {showModal && (
         <ModalGoals

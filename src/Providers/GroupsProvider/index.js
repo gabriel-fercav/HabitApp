@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import api from "./../../services/api";
 import { createContext, useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
@@ -5,7 +6,6 @@ import { UserContext } from "../UserProvider";
 export const GroupsContext = createContext([]);
 
 export const GroupsProvider = ({ children }) => {
-  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [setParams] = useState({ category: "", page: 1 });
   const [groups, setGroups] = useState([]);
   const [oneGroup, setOneGroup] = useState(undefined);
@@ -87,7 +87,7 @@ export const GroupsProvider = ({ children }) => {
       .post(`/groups/${id}/subscribe/`, {}, config)
       .then((_) => {
         toast.success("Inscrito com sucesso!");
-        specificGroup(id)
+        specificGroup(id);
       })
       .catch((err) => toast.error(`Nao foi possivel se inscrever : "${err}"`));
   };
@@ -109,9 +109,11 @@ export const GroupsProvider = ({ children }) => {
   const addGroup = (data) => {
     api
       .post("/groups/", data, config)
-      .then((_) => toast.success("Grupo criado com sucesso"))
+      .then((_) => {
+        toast.success("Grupo criado com sucesso");
+        subscriptionsGroups();
+      })
       .catch("Nao foi possivel criar o grupo");
-    getGroups();
   };
 
   const searchGroup = (id) => {

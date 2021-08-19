@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useEffect, useState, useContext } from "react";
 import { UserContext } from "../UserProvider";
 import { toast } from "react-toastify";
@@ -6,8 +7,6 @@ import axios from "axios";
 
 export const HabitsContext = createContext([]);
 export const HabitsProvider = ({ children }) => {
-  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
-
   const { token } = useContext(UserContext);
 
   const config = {

@@ -45,14 +45,18 @@ export const OverflowGoals = styled.div`
   }
 `;
 
-export const AddIcon = styled.div`
+export const AddIcon = styled.button`
   position: absolute;
-  top: 3px;
-  right: 60px;
-`;
+  background: 0;
+  border: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 5px;
+  right: 5%;
+  transition: 0.3s all;
 
-export const SearchIcon = styled.div`
-  position: absolute;
-  top: 3px;
-  right: 20px;
+  &:hover {
+    background: rgb(45,45,45);
+  }
 `;

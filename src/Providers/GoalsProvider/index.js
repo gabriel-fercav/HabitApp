@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createContext, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import api from "./../../services/api";
@@ -9,7 +10,6 @@ export const GoalsProvider = ({ children }) => {
   const [nextPage, setNextPage] = useState(false);
   const [previousPage, setPreviousPage] = useState(false);
 
-  //const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
   const { token } = useContext(UserContext);
   const config = {
     headers: {
@@ -38,16 +38,6 @@ export const GoalsProvider = ({ children }) => {
       .then((_) => toast.success("Meta deletada com sucesso!"))
       .catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`));
   };
-
-  /*
-    const getOneGoal = (id) => {
-        api.get(`/goals/${id}/`).then((res) => setOneGoal(res.data))
-    }
-
-    const modGoal = (id) => {
-        api.patch(`/goals/${id}/`, config).then((_) => toast.success("Meta atualizada com sucesso!")).catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
-    }
-    */
 
   return (
     <GoalsContext.Provider
