@@ -1,25 +1,24 @@
-import { AddIcon, Container, SearchIcon } from "./style";
+import { AddIcon, Container, OverflowGoals, SearchIcon } from "./style";
 import { MdLibraryAdd } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-import { useState, useEffect } from 'react'
-import { useContext } from 'react'
+import { useState, useEffect } from "react";
+import { useContext } from "react";
 import Goal from "../Goal";
 import ModalGoals from "../ModalGoals";
 import { GoalsContext } from "../../Providers/GoalsProvider";
 
-const Goals = ({groupID}) => {
-
-  const [showModal, setShowModal] = useState(false)
-  const { goals, getAllGoals } = useContext(GoalsContext)
+const Goals = ({ groupID }) => {
+  const [showModal, setShowModal] = useState(false);
+  const { goals, getAllGoals } = useContext(GoalsContext);
 
   const handleAddGoals = () => {
     setShowModal(!showModal);
-    getAllGoals(groupID, 1)
+    getAllGoals(groupID, 1);
   };
 
   useEffect(() => {
-    getAllGoals(groupID, 1)
-  }, [goals])
+    getAllGoals(groupID, 1);
+  }, [goals]);
 
   return (
     <Container>
@@ -31,9 +30,17 @@ const Goals = ({groupID}) => {
       </SearchIcon>
       <h3>Metas</h3>
       {showModal && (
-        <ModalGoals setShowModal={setShowModal} showModal={showModal} groupID={groupID} />
+        <ModalGoals
+          setShowModal={setShowModal}
+          showModal={showModal}
+          groupID={groupID}
+        />
       )}
-      {goals?.map( (x,y) => <Goal key={y} obj={x}/>)}
+      <OverflowGoals>
+        {goals?.map((x, y) => (
+          <Goal key={y} obj={x} />
+        ))}
+      </OverflowGoals>
     </Container>
   );
 };

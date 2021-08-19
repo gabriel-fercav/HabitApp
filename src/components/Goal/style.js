@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 140px;
-  margin-top: 25px;
-  margin-left: 15px;
+  margin: 25px 15px 15px 15px;
   background-color: var(--black);
   border-radius: 15px;
   padding: 45px 0px 35px 15px;
@@ -24,9 +23,6 @@ export const Container = styled.div`
     margin-right: 5px;
   }
 
-  /* @media(min-width: 768px) {
-    height: 295px;
-  } */
 `;
 
 export const DeleteIcon = styled.div`
