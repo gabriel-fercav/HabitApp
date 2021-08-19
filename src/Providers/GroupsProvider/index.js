@@ -109,9 +109,11 @@ export const GroupsProvider = ({ children }) => {
   const addGroup = (data) => {
     api
       .post("/groups/", data, config)
-      .then((_) => toast.success("Grupo criado com sucesso"))
+      .then((_) => {
+        toast.success("Grupo criado com sucesso");
+        subscriptionsGroups();
+      })
       .catch("Nao foi possivel criar o grupo");
-    getGroups();
   };
 
   const searchGroup = (id) => {

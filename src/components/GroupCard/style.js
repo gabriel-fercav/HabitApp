@@ -13,6 +13,8 @@ export const Container = styled.div`
   margin: 10px;
 
   img {
+    width: 100px;
+    height: 100px;
   }
 
   span {
@@ -40,7 +42,7 @@ export const Content = styled.div`
 export const IdGroup = styled.div`
   position: absolute;
   right: 15px;
-  top: 15px;
+  top: 30px;
   border-radius: 5px;
   background-color: white;
   min-width: 5%;
@@ -76,13 +78,22 @@ export const Informations = styled.div`
 export const ContainerButton = styled.div`
   width: 100%;
   text-align: center;
+
   button {
     width: 45%;
     height: 30px;
     border: none;
     border-radius: 5px;
-    background-color: #ff6109;
-    color: white;
+    background-color: rgb(25, 25, 25);
+    color: #ff6109;
     font-weight: bold;
+    transition: 0.3s all;
   }
+
+  button:hover {
+    background-color: rgb(45, 45, 45);
+    color: #ff6109;
+  }
+
+
 `;

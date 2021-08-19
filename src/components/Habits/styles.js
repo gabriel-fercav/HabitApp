@@ -37,7 +37,7 @@ export const Content = styled.div`
 
 export const Card = styled.div`
   min-width: 90%;
-  height: 240px;
+  height: 300px;
   display: flex;
   position: relative;
   flex-flow: column nowrap;
@@ -47,7 +47,7 @@ export const Card = styled.div`
   background-color: var(--black);
   color: #ffff;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
-  margin: 0.5rem;
+  margin: 10px;
   padding: 1.5rem;
 
   @media all and (min-width: 768px) {
@@ -70,7 +70,6 @@ export const ContainerButton = styled.div`
   display: flex;
   flex-direction: row-reverse;
   width: 88%;
-  /* justify-content: space-between; */
   padding-bottom: 1rem;
 
   button {
@@ -84,13 +83,12 @@ export const ContainerButton = styled.div`
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    transition: 0.3s all;
   }
 
   button:hover {
-    background-color: rgb(45,45,45); 
+    background-color: rgb(45, 45, 45);
   }
-
-
 `;
 
 export const Input = styled.input`

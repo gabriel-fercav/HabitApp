@@ -22,8 +22,6 @@ const Activities = ({ id }) => {
     getGroupActivities(id);
   }, [activities]);
 
-  /* console.log(activities); */
-
   return (
     <Container>
       <AddIcon>

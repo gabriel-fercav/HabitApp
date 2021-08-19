@@ -13,7 +13,6 @@ export const Container = styled.div`
 
   img {
     border-radius: 50%;
-    margin-left: 30px;
   }
 
   @media (min-width: 768px) {

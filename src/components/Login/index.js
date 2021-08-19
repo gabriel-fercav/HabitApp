@@ -29,7 +29,6 @@ const LoginForm = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleLogin = (data) => {
-    console.log(data);
     signIn(data);
     history.push("/user");
   };

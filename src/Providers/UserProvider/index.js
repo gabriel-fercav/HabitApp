@@ -1,5 +1,5 @@
 import api from "../../services/api";
-import axios from 'axios'
+import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -44,7 +44,8 @@ export const UserProvider = ({ children }) => {
   };
 
   const signIn = (data) => {
-    axios.post("https://kabit-api.herokuapp.com/sessions/", data, {
+    axios
+      .post("https://kabit-api.herokuapp.com/sessions/", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,7 +54,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("@habit:token", JSON.stringify(res.data.access));
         setToken(res.data.access);
       })
-      .catch((err) => console.log(err));
+      .catch((_) => toast.error("Usuário ou senha incorreto"));
   };
 
   const logOut = () => {
@@ -66,9 +67,15 @@ export const UserProvider = ({ children }) => {
     const dataAtt = {
       username: username,
     };
-    api.patch(`/users/${id}/`, dataAtt, { 
-      headers: { 
-        'Authorization': 'Bearer ' + token }
+    api
+      .patch(`/users/${id}/`, dataAtt, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((_) => {
+        getUser(id);
+        toast.success("Nome alterado com sucesso");
       });
   };
 

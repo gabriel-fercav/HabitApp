@@ -39,16 +39,6 @@ export const GoalsProvider = ({ children }) => {
       .catch((err) => toast.error(`Nao foi possivel apagar a meta: "${err}"`));
   };
 
-  /*
-    const getOneGoal = (id) => {
-        api.get(`/goals/${id}/`).then((res) => setOneGoal(res.data))
-    }
-
-    const modGoal = (id) => {
-        api.patch(`/goals/${id}/`, config).then((_) => toast.success("Meta atualizada com sucesso!")).catch((err) => toast.error(`Nao foi possivel atualizar a meta: "${err}"`))
-    }
-    */
-
   return (
     <GoalsContext.Provider
       value={{
