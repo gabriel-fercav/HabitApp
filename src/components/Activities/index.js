@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Activity from "../Activity";
 import { AddIcon, Container, OverflowActivities, SearchIcon } from "./style";
 import { MdLibraryAdd } from "react-icons/md";
@@ -6,7 +7,7 @@ import { FaSearch } from "react-icons/fa";
 import { useContext, useEffect } from "react";
 import { ActivitiesContext } from "../../Providers/ActivitiesProvider";
 import { useState } from "react";
-import ModalActivities from "../ModalActivities"
+import ModalActivities from "../ModalActivities";
 
 const Activities = ({ id }) => {
   const [showModal, setShowModal] = useState(false);
@@ -27,7 +28,11 @@ const Activities = ({ id }) => {
     <Container>
       <AddIcon>
         <IconButton>
-          <MdLibraryAdd size="25" color="var(--orange)" onClick={handleAddActivities}/>
+          <MdLibraryAdd
+            size="25"
+            color="var(--orange)"
+            onClick={handleAddActivities}
+          />
         </IconButton>
       </AddIcon>
       <SearchIcon>

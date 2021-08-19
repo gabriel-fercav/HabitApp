@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createContext, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import api from "./../../services/api";
@@ -9,7 +10,6 @@ export const GoalsProvider = ({ children }) => {
   const [nextPage, setNextPage] = useState(false);
   const [previousPage, setPreviousPage] = useState(false);
 
-  //const token = JSON.parse(localStorage.getItem("@habit:token")) || ""
   const { token } = useContext(UserContext);
   const config = {
     headers: {

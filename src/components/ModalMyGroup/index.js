@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Container, Content, FormContainer, Button } from "./styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { TextField } from "@material-ui/core";
@@ -53,9 +54,6 @@ const ModalMyGroup = ({ setIsShowModal, isShowModal }) => {
               {...register("description")}
             />
           </div>
-          {/*<div>
-            <TextField fullWidth label="category" {...register("category")} />
-          </div>*/}
           <div>
             <Button type="submit">Entrar</Button>
           </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { AddIcon, Container, OverflowGoals, SearchIcon } from "./style";
 import { MdLibraryAdd } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";

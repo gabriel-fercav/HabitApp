@@ -1,4 +1,4 @@
-import { AddIcon, Container, Content, ContainerCard, Titulo } from "./style";
+import { AddIcon, Container, Content, ContainerCard } from "./style";
 import { MdLibraryAdd } from "react-icons/md";
 import { useContext, useState } from "react";
 import { GroupsContext } from "../../Providers/GroupsProvider";
@@ -6,7 +6,6 @@ import GroupCard from "../GroupCard";
 import ModalMyGroup from "../ModalMyGroup";
 import { IconButton } from "@material-ui/core";
 const MyGroups = () => {
-  const { groups } = useContext(GroupsContext);
   const [isShowModal, setIsShowModal] = useState(false);
 
   const handleAddGroup = (setIsShowModal, isShowModal) => {
@@ -18,7 +17,10 @@ const MyGroups = () => {
     <>
       <Container>
         <AddIcon>
-          <IconButton className = "iconButton" onClick={() => handleAddGroup(setIsShowModal, isShowModal)}>
+          <IconButton
+            className="iconButton"
+            onClick={() => handleAddGroup(setIsShowModal, isShowModal)}
+          >
             <MdLibraryAdd size="30" color="#ff6109" />
           </IconButton>
         </AddIcon>
