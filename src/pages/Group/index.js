@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext } from "react";
 import Activities from "../../components/Activities";
 import Goals from "../../components/Goals";
@@ -38,12 +39,12 @@ const Group = () => {
       <h2>{group.name}</h2>
       <p>{group.description}</p>
       <IconSubscription>
-        <IconButton color = "rgba(0, 0, 0, 0.54)">
-        <IoLogIn
-          color="var(--orange)"
-          size="45"
-          onClick={() => handleClick(group.id)}
-        />
+        <IconButton color="rgba(0, 0, 0, 0.54)">
+          <IoLogIn
+            color="var(--orange)"
+            size="45"
+            onClick={() => handleClick(group.id)}
+          />
         </IconButton>
       </IconSubscription>
       <ContainerCreator>

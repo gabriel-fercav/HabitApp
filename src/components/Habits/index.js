@@ -5,9 +5,7 @@ import {
   ContainerButton,
   Title,
   Content,
-  Button,
   Input,
-  Finish
 } from "./styles";
 import { FaCheck, FaEdit } from "react-icons/fa";
 import { MdTitle, MdGames } from "react-icons/md";
@@ -56,9 +54,9 @@ const Habits = ({ habit }) => {
   return (
     <Card>
       <ContainerButton>
-          <button className="finish" onClick={() => handleTrash(habit.id)}>
-            <FaCheck color={"#FF6109"} size={20} />
-          </button>
+        <button className="finish" onClick={() => handleTrash(habit.id)}>
+          <FaCheck color={"#FF6109"} size={20} />
+        </button>
       </ContainerButton>
       <ContainerText>
         <Content>
@@ -101,20 +99,20 @@ const Habits = ({ habit }) => {
             )}
             <button>
               {isShow ? (
-                <IconButton color = "secondary" size = "small" >
-                <FaEdit
-                  color="#FF6109"
-                  size={20}
-                  onClick={() => setIsShow(!isShow)}
-                />
+                <IconButton color="secondary" size="small">
+                  <FaEdit
+                    color="#FF6109"
+                    size={20}
+                    onClick={() => setIsShow(!isShow)}
+                  />
                 </IconButton>
               ) : (
-                <IconButton color = "secondary" size = "small">
-                <FaCheck
-                  color="#FF6109"
-                  size={20}
-                  onClick={() => handleUpdate(habit.id)}
-                />
+                <IconButton color="secondary" size="small">
+                  <FaCheck
+                    color="#FF6109"
+                    size={20}
+                    onClick={() => handleUpdate(habit.id)}
+                  />
                 </IconButton>
               )}
             </button>

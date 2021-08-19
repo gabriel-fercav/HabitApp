@@ -1,11 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { toast } from "react-toastify";
-import { GroupsContext } from "../GroupsProvider";
 import api from "./../../services/api";
 import { UserContext } from "../UserProvider";
 export const ActivitiesContext = createContext([]);
 export const ActivitiesProvider = ({ children }) => {
-  //const token = JSON.parse(localStorage.getItem("@habit:token")) || "";
   const [activities, setActivities] = useState([]);
   const [activity, setActivity] = useState([]);
   const [nextPage, setNextPage] = useState(false);
@@ -18,7 +16,7 @@ export const ActivitiesProvider = ({ children }) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  //const id = group.id || null;
+
   const getGroupActivities = (id) => {
     const query = {
       params: { group: id, page: countPage },
@@ -27,7 +25,7 @@ export const ActivitiesProvider = ({ children }) => {
       .get(`/activities/?group=${id}&page=${countPage}`, query)
       .then((res) => {
         const { next, previous } = res.data;
-        /* console.log(res.data); */
+
         if (next === null) {
           setNextPage(false);
         } else {
@@ -42,18 +40,6 @@ export const ActivitiesProvider = ({ children }) => {
       })
       .catch((err) => console.log(err));
   };
-
-  //useEffect(() => {
-  //  if (token && id !== null) {
-  //    getGroupActivities(id);
-  //  }
-  //}, [countPage]);
-  //useEffect(() => {
-  //  if (token && id !== null) {
-  //    setCountPage(1);
-  //    getGroupActivities(id);
-  //  }
-  //}, [group]);
 
   const getActivity = (id) => {
     api

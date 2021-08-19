@@ -6,10 +6,6 @@ export const Container = styled.div`
   border-radius: 8px;
   margin: 5px;
 
-  > div + div {
-    /*margin: 10px;*/
-  }
-
   @media (min-width: 768px) {
     width: 100%;
     height: 100vh;
@@ -65,6 +61,6 @@ export const AddIcon = styled.span`
   }
 
   .iconButton:hover {
-    background-color: rgb(45,45,45);
+    background-color: rgb(45, 45, 45);
   }
 `;

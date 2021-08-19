@@ -32,13 +32,13 @@ const useStyles = makeStyles({
 
 const ModalHabits = ({ setShowModal, showModal }) => {
   const [difficulty, setDifficulty] = useState("Fácil");
-  const [category, setCategory] = useState("Moba");
   const [achieved, setAchieved] = useState("true");
   const { id } = useContext(UserContext);
   const { addHabit } = useContext(HabitsContext);
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
+    category: yup.string().required("Campo obrigatório"),
     frequency: yup.string().required("Campo obrigatório"),
     how_much_achieved: yup
       .number()
@@ -57,10 +57,6 @@ const ModalHabits = ({ setShowModal, showModal }) => {
     setDifficulty(event.target.value);
   };
 
-  const handleInputCategory = (event) => {
-    setCategory(event.target.value);
-  };
-
   const handleInputAchieved = (event) => {
     setAchieved(event.target.value);
   };
@@ -70,7 +66,7 @@ const ModalHabits = ({ setShowModal, showModal }) => {
   };
 
   const handleSubmitFunction = (data) => {
-    const { how_much_achieved, title, frequency } = data;
+    const { how_much_achieved, category, title, frequency } = data;
     const newData = {
       title: title,
       category: category,
@@ -100,20 +96,15 @@ const ModalHabits = ({ setShowModal, showModal }) => {
           label="Título"
           fullWidth
         />
-
+        <TextField
+          className={classes.input}
+          {...register("category")}
+          error={!!errors.category}
+          variant="outlined"
+          label="Categoria"
+          fullWidth
+        />
         <FormControl fullWidth className={classes.input}>
-          <InputLabel>Categoria</InputLabel>
-          <Select
-            value={category}
-            onChange={handleInputCategory}
-            name="category"
-          >
-            <MenuItem value="Moba">Moba</MenuItem>
-            <MenuItem value="FPS">FPS</MenuItem>
-            <MenuItem value="MMA">MMA</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl required fullWidth className={classes.input}>
           <InputLabel>Dificuldade</InputLabel>
           <Select
             value={difficulty}
@@ -127,7 +118,6 @@ const ModalHabits = ({ setShowModal, showModal }) => {
         </FormControl>
         <TextField
           className={classes.input}
-          required
           variant="outlined"
           label="Frequencia"
           fullWidth
@@ -135,7 +125,7 @@ const ModalHabits = ({ setShowModal, showModal }) => {
           error={!!errors.frequency}
         />
         <FormControl component="fieldset" fullWidth className={classes.input}>
-          <FormLabel component="legend">alcançado: </FormLabel>
+          <FormLabel component="legend">Alcançado: </FormLabel>
           <RadioGroup
             aria-label="alcançado"
             name="achieved"

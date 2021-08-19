@@ -37,7 +37,7 @@ export const Content = styled.div`
 
 export const Card = styled.div`
   min-width: 90%;
-  height: 240px;
+  height: 300px;
   display: flex;
   position: relative;
   flex-flow: column nowrap;
@@ -87,10 +87,8 @@ export const ContainerButton = styled.div`
   }
 
   button:hover {
-    background-color: rgb(45,45,45); 
+    background-color: rgb(45, 45, 45);
   }
-
-
 `;
 
 export const Input = styled.input`

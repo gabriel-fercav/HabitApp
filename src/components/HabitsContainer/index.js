@@ -1,10 +1,15 @@
 import { useContext, useState } from "react";
-import { Container, Content, ContainerCards, Title, Button } from "./styles";
+import {
+  Container,
+  Content,
+  ContainerCards,
+  Title,
+  ContainerButton,
+} from "./styles";
 import ModalHabits from "../ModalHabits";
 import { IoAddCircle } from "react-icons/io5";
 import Habits from "./../Habits";
 import { HabitsContext } from "../../Providers/HabitsProvider";
-import { IconButton } from "@material-ui/core";
 
 const HabitsContainer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -16,9 +21,11 @@ const HabitsContainer = () => {
 
   return (
     <Container>
-      <IconButton style = {Button} onClick={() => handleAddHabits()}>
-        <IoAddCircle size={"25px"} color={"#ff6109"} />
-      </IconButton>
+      <ContainerButton>
+        <button onClick={() => handleAddHabits()}>
+          <IoAddCircle size={"25px"} color={"#ff6109"} />
+        </button>
+      </ContainerButton>
       <Content>
         <Title> Meus Hábitos </Title>
 
