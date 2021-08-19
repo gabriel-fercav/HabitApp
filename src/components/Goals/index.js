@@ -24,15 +24,8 @@ const Goals = ({ groupID }) => {
   return (
     <Container>
       <AddIcon onClick={() => handleAddGoals()}>
-        <IconButton>
           <MdLibraryAdd size="25" color="var(--orange)" />
-        </IconButton>
       </AddIcon>
-      <SearchIcon>
-        <IconButton>
-          <FaSearch size="25" color="var(--orange)" />
-        </IconButton>
-      </SearchIcon>
       <h3>Metas</h3>
       {showModal && (
         <ModalGoals

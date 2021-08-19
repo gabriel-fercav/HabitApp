@@ -104,8 +104,7 @@ export const ContainerCreator = styled.div`
 
 export const ContainerUsers = styled.div`
   width: 70%;
-  min-height: 22vh;
-  max-height: 30vh;
+  height: 49.5%;
   background-color: var(--black);
   margin: 10px 2% 30px 1.5%;
   border-radius: 10px;
@@ -116,8 +115,8 @@ export const ContainerUsers = styled.div`
   }
 
   p {
-    padding-left: 30px;
-    padding-top: 10px;
+    margin-left: 20px;
+    margin-top: 5px;
     text-align: start;
   }
 
@@ -137,25 +136,30 @@ export const ContainerUsers = styled.div`
     max-height: 59vh;
     position: absolute;
     left: 10px;
-    top: 46vh;
+    top: 45.8vh;
+
+    p {
+      position: unset;
+    }
+
+    @media (min-width: 1920px) {
+    width: 25%;
+    max-height: 59vh;
+    position: absolute;
+    left: 10px;
+    top: 42vh;
 
     p {
       position: unset;
     }
   }
+}  
 `;
 
 export const OverflowUsers = styled.div`
-  overflow: auto;
-  max-height: 20vh;
-
-  @media (min-width: 768px) {
-    max-height: 15vh;
-  }
-
-  @media (min-width: 1024px) {
-    max-height: 20vh;
-  }
+  overflow-y: auto;
+  max-height: 42vh;
+  padding: 10px;
 `;
 
 export const Content = styled.div`
@@ -185,6 +189,16 @@ export const Content = styled.div`
     position: absolute;
     right: 20px;
     top: 42vh;
+    padding: 20px 15px 0 15px;
+  }
+
+  @media (min-width: 1920px) {
+    justify-content: space-around;
+    width: 69vw;
+    height: 50vh;
+    position: absolute;
+    right: 20px;
+    top: 40vh;
     padding: 20px 15px 0 15px;
   }
 `;

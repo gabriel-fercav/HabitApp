@@ -25,14 +25,29 @@ export const Container = styled.div`
 
 `;
 
-export const DeleteIcon = styled.div`
+export const DeleteIcon = styled.button`
   position: absolute;
-  right: 10px;
-  top: 10px;
-`;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(25,25,25);
+  border-radius: 50%;
+  border: 0;
+  width: 45px;
+  height: 45px;
+  right: 5%;
+  top: 15px;
+  transition: 0.3s all;
 
-export const EditIcon = styled.div`
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  &:hover {
+    background-color: rgb(45,45,45);
+  }
+
+  @media (max-width: 640px) {
+    width: 30px;
+    height: 30px;
+  }
+
 `;

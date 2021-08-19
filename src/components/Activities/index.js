@@ -25,16 +25,9 @@ const Activities = ({ id }) => {
 
   return (
     <Container>
-      <AddIcon>
-        <IconButton>
-          <MdLibraryAdd size="25" color="var(--orange)" onClick={handleAddActivities}/>
-        </IconButton>
+      <AddIcon onClick={() => handleAddActivities()}>
+        <MdLibraryAdd size="25" color="var(--orange)" />
       </AddIcon>
-      <SearchIcon>
-        <IconButton>
-          <FaSearch size="25" color="var(--orange)" />
-        </IconButton>
-      </SearchIcon>
       <h3>Atividades</h3>
       {showModal && (
         <ModalActivities
