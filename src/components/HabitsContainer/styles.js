@@ -26,7 +26,6 @@ export const Content = styled.div`
   flex-flow: column nowrap;
   opacity: 91%;
   align-items: center;
-  /*max-width: 400px;*/
   padding: 1rem 0;
 `;
 
@@ -42,7 +41,6 @@ export const Title = styled.p`
 export const ContainerCards = styled.div`
   width: 100%;
   height: 400px;
-  /*padding-top: 1rem;*/
   display: flex;
   overflow-x: auto;
 

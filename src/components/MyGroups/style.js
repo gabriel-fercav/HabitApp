@@ -39,12 +39,13 @@ export const Content = styled.div`
 
 export const ContainerCard = styled.div`
   overflow-x: auto;
-  /*padding-top: 1.5rem;*/
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   height: 400px;
+
   @media all and (min-width: 768px) {
+    justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
     height: 75vh;
