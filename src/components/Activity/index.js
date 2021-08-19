@@ -1,12 +1,15 @@
 import { Container, DeleteIcon, EditIcon } from "./style";
 import { MdStars, MdDeleteForever, MdEdit } from "react-icons/md";
+import { IconButton } from "@material-ui/core";
 import { IoTime } from "react-icons/io5";
 
 const Activity = () => {
   return (
     <Container>
       <DeleteIcon>
-        <MdDeleteForever size="30" color="var(--orange)" />
+        <IconButton color = "secondary">
+          <MdDeleteForever size="30" color="var(--orange)" />
+        </IconButton>
       </DeleteIcon>
       <div>
         <span>
@@ -21,7 +24,9 @@ const Activity = () => {
         <h4>20/08/2021 - 08:00</h4>
       </div>
       <EditIcon>
-        <MdEdit size="30" color="var(--orange)" />
+        <IconButton color = "secondary">
+          <MdEdit size="30" color="var(--orange)" />
+        </IconButton>
       </EditIcon>
     </Container>
   );
